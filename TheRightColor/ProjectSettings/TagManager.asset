@@ -3,7 +3,12 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Manager/GameManager
+  - Container/InteractiveContainer
+  - Container/GeneratorContainer
+  - Tile/GeneratorTile
+  - Tile/InteractiveTile
   layers:
   - Default
   - TransparentFX
