@@ -9,6 +9,24 @@ TagManager:
   - Container/GeneratorContainer
   - Tile/GeneratorTile
   - Tile/InteractiveTile
+  - Canvas/GameCanvas
+  - Container/CanvasContainer
+  - Container/ButtonContainer
+  - Canvas/MenuCanvas
+  - Container/ControlContainer
+  - Canvas/ControlCanvas
+  - Canvas/SettingCanvas
+  - Canvas/CreditCanvas
+  - Panel/BackGround
+  - Panel/WorldImage
+  - SettingOption/Volume
+  - Board/Timer
+  - Board/Score
+  - Board/Tiles
+  - Stats/Highscore
+  - Container/CreditContainer
+  - Container/SettingContainer
+  - text
   layers:
   - Default
   - TransparentFX
@@ -18,7 +36,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - TileLayer
   - 
   - 
   - 
@@ -45,4 +63,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: TileLayer
+    uniqueID: 4087188023
     locked: 0

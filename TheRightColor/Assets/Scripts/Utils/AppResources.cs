@@ -13,7 +13,9 @@ public class AppResources
 
 
 	public static GameObject InteractiveTile = (GameObject)Resources.Load("Prefabs/Tile/InteractiveTile");
+	public static GameObject AudioSpecturmBar = (GameObject)Resources.Load("Prefabs/UI/bar");
 
+	public static GameObject Touch_PS = (GameObject)Resources.Load("Prefabs/Particle/Touch");
 
 
 	public static GameObject GeneratorTile = (GameObject)Resources.Load("Prefabs/Tile/GeneratorTile");
