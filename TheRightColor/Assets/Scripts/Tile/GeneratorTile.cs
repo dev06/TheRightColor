@@ -16,11 +16,15 @@ public class GeneratorTile: Tile
 		EventManager.OnCorrectColor -= OnCorrectColor;
 	}
 
+	void Start()
+	{
+
+	}
+
 
 	public override void OnPointerClick(PointerEventData data)
 	{
 		base.OnPointerClick(data);
-		Debug.Log("Cikc");
 	}
 
 	void OnCorrectColor()

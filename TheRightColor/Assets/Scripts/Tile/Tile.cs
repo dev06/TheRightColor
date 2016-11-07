@@ -6,6 +6,7 @@ public class Tile :  MonoBehaviour, IPointerClickHandler {
 
 	public TileID tileID;
 
+
 	protected Image tileImage;
 	protected Animation tileAnimation;
 
