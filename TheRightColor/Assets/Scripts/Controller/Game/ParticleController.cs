@@ -13,7 +13,6 @@ public class ParticleController : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
 	{
-		Debug.Log(Input.touchCount);
 
 
 		// if (Input.GetMouseButtonDown(0))
