@@ -5,7 +5,6 @@ public class GameManager : MonoBehaviour {
 
 	public static GameManager Instance;
 
-
 	public float score;
 	public float highscore;
 	public State state;
@@ -23,7 +22,6 @@ public class GameManager : MonoBehaviour {
 
 	void Start()
 	{
-
 	}
 
 

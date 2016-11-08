@@ -18,6 +18,17 @@ public class SpectrumController : MonoBehaviour {
 
 	private Slider _volume;
 
+	void OnEnable()
+	{
+		EventManager.OnGameStateActive += OnGameStateActive;
+	}
+
+
+	void OnDisable()
+	{
+		EventManager.OnGameStateActive -= OnGameStateActive;
+	}
+
 	void Start ()
 	{
 		_barCount = 6;
@@ -33,12 +44,14 @@ public class SpectrumController : MonoBehaviour {
 		_animatedObject.Add(new AnimatedObject(GameObject.FindWithTag("Container/ControlContainer"), GameObject.FindWithTag("Container/ControlContainer").transform.localScale));
 		_animatedObject.Add(new AnimatedObject(GameObject.FindWithTag("Container/CreditContainer"), GameObject.FindWithTag("Container/CreditContainer").transform.localScale));
 		_animatedObject.Add(new AnimatedObject(GameObject.FindWithTag("Container/SettingContainer"), GameObject.FindWithTag("Container/SettingContainer").transform.localScale));
+		_animatedObject.Add(new AnimatedObject(GameObject.FindWithTag("Effects"), GameObject.FindWithTag("Effects").transform.localScale, 2.0f));
 
 
 
 		_volume = GameObject.FindWithTag("SettingOption/Volume").GetComponent<Slider>();
 		PopulateBars();
 		UpdateAudioSetting();
+		_audioSource.time = Random.Range(0, _audioSource.clip.length / 4.0f);
 	}
 
 	void PopulateBars()
@@ -68,8 +81,13 @@ public class SpectrumController : MonoBehaviour {
 
 	}
 
+	void OnGameStateActive()
+	{
+
+	}
+
 	// Update is called once per frame
-	void Update ()
+	void FixedUpdate ()
 	{
 		if (GameManager.Instance.state != State.Game)
 		{
@@ -85,7 +103,7 @@ public class SpectrumController : MonoBehaviour {
 		{
 			RectTransform _rectTransform = _barContainer.GetChild(i).GetComponent<RectTransform>();
 			float _scaleY = _rectTransform.localScale.y;
-			_scaleY = Mathf.SmoothDamp(_scaleY, spectrum[i] * 10, ref vel, .08f);
+			_scaleY = Mathf.SmoothDamp(_scaleY, spectrum[i] * 10, ref vel, .12f);
 			if (_scaleY < 0) { _scaleY = 0; }
 			_rectTransform.localScale = new Vector3(1, _scaleY, 1);
 			for (int ii = 0; ii < _animatedObject.Count; ii++)

@@ -5,7 +5,6 @@ using System.Collections.Generic;
 public class ParticleController : MonoBehaviour {
 
 	// Use this for initialization
-	Vector3 pos;
 	void Start () {
 
 	}
