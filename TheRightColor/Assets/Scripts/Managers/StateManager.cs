@@ -189,6 +189,10 @@ public class StateManager : MonoBehaviour {
 			case State.Game:
 			{
 				//EnableCanvas("GameCanvas");
+				if (EventManager.OnGameStateActive != null)
+				{
+					EventManager.OnGameStateActive();
+				}
 				GameManager.Instance.state = state;
 				break;
 			}
@@ -196,6 +200,11 @@ public class StateManager : MonoBehaviour {
 			case State.Menu:
 			{
 				//	EnableCanvas("MenuCanvas");
+				if (EventManager.OnMenuStateActive != null)
+				{
+					EventManager.OnMenuStateActive();
+				}
+
 				GameManager.Instance.state = state;
 				break;
 			}
@@ -203,16 +212,28 @@ public class StateManager : MonoBehaviour {
 			case State.Control:
 			{
 				//	EnableCanvas("ControlCanvas");
+				if (EventManager.OnControlStateActive != null)
+				{
+					EventManager.OnControlStateActive();
+				}
 				GameManager.Instance.state = state;
 				break;
 			}
 			case State.Setting:
 			{
+				if (EventManager.OnSettingStateActive != null)
+				{
+					EventManager.OnSettingStateActive();
+				}
 				GameManager.Instance.state = state;
 				break;
 			}
 			case State.Credit:
 			{
+				if (EventManager.OnCreditStateActive != null)
+				{
+					EventManager.OnCreditStateActive();
+				}
 				GameManager.Instance.state = state;
 				break;
 			}

@@ -5,7 +5,6 @@ using System.Collections.Generic;
 public class ParticleController : MonoBehaviour {
 
 	// Use this for initialization
-	Vector3 pos;
 	void Start () {
 
 	}
@@ -13,7 +12,6 @@ public class ParticleController : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
 	{
-		Debug.Log(Input.touchCount);
 
 
 		// if (Input.GetMouseButtonDown(0))

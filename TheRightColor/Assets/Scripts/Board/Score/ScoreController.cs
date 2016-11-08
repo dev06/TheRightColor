@@ -33,7 +33,7 @@ public class ScoreController : MonoBehaviour {
 
 	void Update ()
 	{
-		if (GameManager.Instance.score < 100)
+		if (GameManager.Instance.score <= GameManager.Instance.highscore)
 		{
 			_scoreText.text = GameManager.Instance.score + "";
 		} else {

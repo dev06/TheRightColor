@@ -9,19 +9,22 @@ public class TimerController : MonoBehaviour {
 	private Image _timerCounterImage;
 	private bool _eventTriggered;
 
-
+	private bool _canDepleteTime;
 
 	void OnEnable()
 	{
 		EventManager.OnCorrectColor += OnCorrectColor;
 		EventManager.OnIncorrectColor += OnIncorrectColor;
+		EventManager.OnBreakStreak += OnBreakStreak;
+		EventManager.OnFirstTouch += OnFirstTouch;
 	}
 
 	void OnDisable()
 	{
 		EventManager.OnCorrectColor -= OnCorrectColor;
 		EventManager.OnIncorrectColor -= OnIncorrectColor;
-
+		EventManager.OnFirstTouch -= OnFirstTouch;
+		EventManager.OnBreakStreak -= OnBreakStreak;
 	}
 
 
@@ -38,11 +41,16 @@ public class TimerController : MonoBehaviour {
 		{
 
 
-
-			if (!Application.isEditor) {
+			if (_canDepleteTime)
+			{
+				DepleteTime(1.0f);
 			}
 
-			DepleteTime(1.0f);
+			if (!Application.isEditor)
+			{
+
+			}
+
 
 
 			if (_eventTriggered == false)
@@ -58,6 +66,9 @@ public class TimerController : MonoBehaviour {
 			}
 		}
 	}
+
+
+
 
 	private void DepleteTime(float _penaltyRate)
 	{
@@ -82,6 +93,16 @@ public class TimerController : MonoBehaviour {
 		{
 			remainingTime = baseTime;
 		}
+	}
+
+	private void OnFirstTouch()
+	{
+		_canDepleteTime = true;
+	}
+
+	private void OnBreakStreak()
+	{
+		remainingTime -= MasterVar.Incorrect_Color_Penalty / 4;
 	}
 
 

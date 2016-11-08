@@ -49,12 +49,21 @@ public class InteractiveTile: Tile
 	public override void OnPointerClick(PointerEventData data)
 	{
 		base.OnPointerClick(data);
+		if (GameManager.Instance.score == 0)
+		{
+			if (EventManager.OnFirstTouch != null)
+			{
+				EventManager.OnFirstTouch();
+			}
+		}
+
 		if (tileImage.color == generatorTile.color)
 		{
 			if (EventManager.OnCorrectColor != null)
 			{
 				EventManager.OnCorrectColor();
 			}
+
 		} else {
 
 			if (EventManager.OnIncorrectColor != null)

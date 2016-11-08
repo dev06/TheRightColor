@@ -14,6 +14,7 @@ public class EventManager : MonoBehaviour {
 	public static StateChange OnSettingStateActive;
 	public static StateChange OnGameOverStateActive;
 	public static StateChange OnControlStateActive;
+	public static StateChange OnCreditStateActive;
 
 
 
@@ -22,6 +23,11 @@ public class EventManager : MonoBehaviour {
 	public static ButtonPress OnSettingButtonPress;
 	public static ButtonPress OnCreditButtonPress;
 	public static ButtonPress OnControlButtonPress;
+
+
+	public delegate void GamePlay();
+	public static GamePlay OnFirstTouch;
+	public static GamePlay OnBreakStreak;
 
 
 	public delegate void Timer();
