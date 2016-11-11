@@ -10,10 +10,12 @@ public class BoardController : MonoBehaviour {
 	public static int BoardSize = 2;
 	public GameObject generatorTile;
 	public List<InteractiveTile> interactiveTile;
-
-
+	private Animator _flashAnimator;
+	private float _hue;
+	private Color _hueColor = new Color();
 	private RectTransform _interactiveTileContainer;
 	private Vector3 _interactiveTileContainer_pos;
+	private Image _boardImage;
 	void OnEnable()
 	{
 		EventManager.OnCorrectColor += OnCorrectColor;
@@ -33,6 +35,9 @@ public class BoardController : MonoBehaviour {
 	void Start()
 	{
 		GenerateInteractiveTileColor();
+		_boardImage = GetComponent<Image>();
+		_flashAnimator = transform.FindChild("FlashImage").GetComponent<Animator>();
+
 	}
 
 
@@ -43,6 +48,8 @@ public class BoardController : MonoBehaviour {
 			_interactiveTileContainer_pos.x = 0;
 			_interactiveTileContainer.localPosition = _interactiveTileContainer_pos;
 		}
+
+		ChangeBackGround();
 	}
 
 
@@ -258,6 +265,20 @@ public class BoardController : MonoBehaviour {
 		return _normalizedColor;
 	}
 
+	private AnimationClip GetAnimatorClipAtIndex(int index)
+	{
+		RuntimeAnimatorController ac = _flashAnimator.runtimeAnimatorController;
+		AnimationClip[] clips = ac.animationClips;
+		return clips[index];
+	}
+
+
+	private void ChangeBackGround()
+	{
+		_hue = Mathf.PingPong(Time.time / 15.0f, 1.0f);
+		_hueColor = Color.HSVToRGB(_hue, .5f, .5f);
+		_boardImage.color = _hueColor;
+	}
 
 	/// <summary>
 	/// Event triggered when correct color is pressed
@@ -266,5 +287,8 @@ public class BoardController : MonoBehaviour {
 	{
 		GenerateGeneratorColor();
 		GenerateInteractiveTileColor();
+
+		_flashAnimator.SetTrigger("Trigger");
+
 	}
 }

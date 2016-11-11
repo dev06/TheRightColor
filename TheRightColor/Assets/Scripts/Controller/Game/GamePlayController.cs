@@ -24,6 +24,7 @@ public class GamePlayController : MonoBehaviour {
 	{
 		stageOne = 10;
 		_consectiveText = GameObject.FindWithTag("Challenge/ConsecutveText").GetComponent<Text>();
+
 	}
 
 	void Update ()
