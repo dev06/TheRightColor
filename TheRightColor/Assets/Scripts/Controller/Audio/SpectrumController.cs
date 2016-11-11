@@ -106,13 +106,12 @@ public class SpectrumController : MonoBehaviour {
 			_scaleY = Mathf.SmoothDamp(_scaleY, spectrum[i] * 10, ref vel, .12f);
 			if (_scaleY < 0) { _scaleY = 0; }
 			_rectTransform.localScale = new Vector3(1, _scaleY, 1);
-			for (int ii = 0; ii < _animatedObject.Count; ii++)
-			{
-				UpdateTileEntities(spectrum[i], _animatedObject[ii].anim_object, _animatedObject[ii].defaultScale, _animatedObject[ii].velX, _animatedObject[ii].velY, _animatedObject[ii].intensity);
-			}
-		}
 
-		//UpdateAudioSetting();
+		}
+		for (int ii = 0; ii < _animatedObject.Count; ii++)
+		{
+			UpdateTileEntities(spectrum[ii], _animatedObject[ii].anim_object, _animatedObject[ii].defaultScale, _animatedObject[ii].velX, _animatedObject[ii].velY, _animatedObject[ii].intensity);
+		}
 	}
 
 
