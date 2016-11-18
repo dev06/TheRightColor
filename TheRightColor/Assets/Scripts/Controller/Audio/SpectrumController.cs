@@ -44,6 +44,7 @@ public class SpectrumController : MonoBehaviour {
 		_animatedObject.Add(new AnimatedObject(GameObject.FindWithTag("Container/ControlContainer"), GameObject.FindWithTag("Container/ControlContainer").transform.localScale));
 		_animatedObject.Add(new AnimatedObject(GameObject.FindWithTag("Container/CreditContainer"), GameObject.FindWithTag("Container/CreditContainer").transform.localScale));
 		_animatedObject.Add(new AnimatedObject(GameObject.FindWithTag("Container/SettingContainer"), GameObject.FindWithTag("Container/SettingContainer").transform.localScale));
+		_animatedObject.Add(new AnimatedObject(GameObject.FindWithTag("Container/Challenge"), GameObject.FindWithTag("Container/Challenge").transform.localScale, 3.0f));
 		_animatedObject.Add(new AnimatedObject(GameObject.FindWithTag("Effects"), GameObject.FindWithTag("Effects").transform.localScale, 2.0f));
 
 
