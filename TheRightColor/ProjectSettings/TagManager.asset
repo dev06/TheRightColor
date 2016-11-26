@@ -29,6 +29,8 @@ TagManager:
   - Effects
   - Challenge/ConsecutveText
   - Container/ChallengeContainer
+  - Container/Challenge
+  - Canvas/PauseCanvas
   layers:
   - Default
   - TransparentFX

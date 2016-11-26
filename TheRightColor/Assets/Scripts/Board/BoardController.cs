@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class BoardController : MonoBehaviour {
 
 	public static int BoardSize = 2;
+	public static Color[] TileColor = new Color[20];
 	public GameObject generatorTile;
 	public List<InteractiveTile> interactiveTile;
 	private Animator _flashAnimator;
@@ -16,6 +17,8 @@ public class BoardController : MonoBehaviour {
 	private RectTransform _interactiveTileContainer;
 	private Vector3 _interactiveTileContainer_pos;
 	private Image _boardImage;
+
+
 	void OnEnable()
 	{
 		EventManager.OnCorrectColor += OnCorrectColor;
@@ -28,6 +31,7 @@ public class BoardController : MonoBehaviour {
 
 	void Awake ()
 	{
+		PopulateTileColor(.6f, .8f);
 		GenerateGenerator();
 		GenerateBoard(BoardSize, BoardSize);
 	}
@@ -50,6 +54,24 @@ public class BoardController : MonoBehaviour {
 		}
 
 		ChangeBackGround();
+	}
+
+	private void PopulateTileColor(float min, float max)
+	{
+		for (int i = 0; i < TileColor.Length; i++)
+		{
+			Color c = new Color();
+			c.r = Random.Range(min, max) + GetSignValue(Random.Range(.001f, .15f));
+			c.g = Random.Range(min, max) + GetSignValue(Random.Range(.001f, .15f));
+			c.b = Random.Range(min, max) + GetSignValue(Random.Range(.001f, .15f));
+			c.a = 1.0f;
+			TileColor[i] = c;
+		}
+	}
+
+	private float GetSignValue(float _value)
+	{
+		return Random.Range(0, 2) == 0 ? _value : -_value;
 	}
 
 
@@ -145,14 +167,19 @@ public class BoardController : MonoBehaviour {
 				_tile.SetColor(_generatorColor);
 			} else {
 				Color _mixColor = new Color();
-				Color _genColor = _generatorColor;
-				float _difficulty = GameManager.Instance.score;
-				float _rate = _difficulty / 10.0f;
-				float _difference = 1.0f / (1 + _rate);
 
-				_mixColor.r = _genColor.r + GetColorValue(_difference);
-				_mixColor.g = _genColor.g + GetColorValue(_difference);
-				_mixColor.b = _genColor.b + GetColorValue(_difference);
+				float _min = .6f;
+				float _max = .7f;
+				float _divider = 10.0f;
+				float _r = Random.Range(_min, _max) + GetColorValue((float) i / _divider);
+				float _g = Random.Range(_min, _max) + GetColorValue((float) i / _divider);
+				float _b = Random.Range(_min, _max) + GetColorValue((float) i / _divider);
+				Color _genColor = TileColor[Random.Range(0, TileColor.Length - 1)];
+
+
+				_mixColor.r = _genColor.r;
+				_mixColor.g = _genColor.g;
+				_mixColor.b = _genColor.b;
 				_mixColor.a = 1.0f;
 				_mixColor = NormalizeColor(_mixColor);
 				_tile.SetColor(_mixColor);
@@ -179,41 +206,41 @@ public class BoardController : MonoBehaviour {
 			switch (_cornerTileID)
 			{
 				case 0:
-				{
-					_sprite = Sprite.Create(AppResources.InteractiveTile_BottomLeft_Texture,
-					                        new Rect(0, 0, AppResources.InteractiveTile_BottomLeft_Texture.width,
-					                                 AppResources.InteractiveTile_BottomLeft_Texture.height),
-					                        new Vector2(.5f, .5f));
+					{
+						_sprite = Sprite.Create(AppResources.InteractiveTile_BottomLeft_Texture,
+						                        new Rect(0, 0, AppResources.InteractiveTile_BottomLeft_Texture.width,
+						                                 AppResources.InteractiveTile_BottomLeft_Texture.height),
+						                        new Vector2(.5f, .5f));
 
-					break;
-				}
+						break;
+					}
 				case 1:
-				{
-					_sprite = Sprite.Create(AppResources.InteractiveTile_TopLeft_Texture,
-					                        new Rect(0, 0, AppResources.InteractiveTile_TopLeft_Texture.width,
-					                                 AppResources.InteractiveTile_TopLeft_Texture.height),
-					                        new Vector2(.5f, .5f));
+					{
+						_sprite = Sprite.Create(AppResources.InteractiveTile_TopLeft_Texture,
+						                        new Rect(0, 0, AppResources.InteractiveTile_TopLeft_Texture.width,
+						                                 AppResources.InteractiveTile_TopLeft_Texture.height),
+						                        new Vector2(.5f, .5f));
 
-					break;
-				}
+						break;
+					}
 				case 2:
-				{
-					_sprite = Sprite.Create(AppResources.InteractiveTile_TopRight_Texture,
-					                        new Rect(0, 0, AppResources.InteractiveTile_TopRight_Texture.width,
-					                                 AppResources.InteractiveTile_TopRight_Texture.height),
-					                        new Vector2(.5f, .5f));
+					{
+						_sprite = Sprite.Create(AppResources.InteractiveTile_TopRight_Texture,
+						                        new Rect(0, 0, AppResources.InteractiveTile_TopRight_Texture.width,
+						                                 AppResources.InteractiveTile_TopRight_Texture.height),
+						                        new Vector2(.5f, .5f));
 
-					break;
-				}
+						break;
+					}
 				case 3:
-				{
-					_sprite = Sprite.Create(AppResources.InteractiveTile_BottomRight_Texture,
-					                        new Rect(0, 0, AppResources.InteractiveTile_BottomRight_Texture.width,
-					                                 AppResources.InteractiveTile_BottomRight_Texture.height),
-					                        new Vector2(.5f, .5f));
+					{
+						_sprite = Sprite.Create(AppResources.InteractiveTile_BottomRight_Texture,
+						                        new Rect(0, 0, AppResources.InteractiveTile_BottomRight_Texture.width,
+						                                 AppResources.InteractiveTile_BottomRight_Texture.height),
+						                        new Vector2(.5f, .5f));
 
-					break;
-				}
+						break;
+					}
 			}
 		}
 
@@ -289,6 +316,8 @@ public class BoardController : MonoBehaviour {
 		GenerateInteractiveTileColor();
 
 		_flashAnimator.SetTrigger("Trigger");
-
 	}
+
+
+
 }

@@ -20,4 +20,9 @@ public class AppResources
 
 	public static GameObject GeneratorTile = (GameObject)Resources.Load("Prefabs/Tile/GeneratorTile");
 
+
+
+
+	public static string Alan_Walker = "https://soundcloud.com/alanwalker";
+
 }
