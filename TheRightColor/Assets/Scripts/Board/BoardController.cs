@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class BoardController : MonoBehaviour {
 
 	public static int BoardSize = 2;
+	public static Color[] TileColor = new Color[20];
 	public GameObject generatorTile;
 	public List<InteractiveTile> interactiveTile;
 	private Animator _flashAnimator;
@@ -16,6 +17,7 @@ public class BoardController : MonoBehaviour {
 	private RectTransform _interactiveTileContainer;
 	private Vector3 _interactiveTileContainer_pos;
 	private Image _boardImage;
+
 
 	void OnEnable()
 	{
@@ -29,6 +31,7 @@ public class BoardController : MonoBehaviour {
 
 	void Awake ()
 	{
+		PopulateTileColor(.6f, .8f);
 		GenerateGenerator();
 		GenerateBoard(BoardSize, BoardSize);
 	}
@@ -51,6 +54,24 @@ public class BoardController : MonoBehaviour {
 		}
 
 		ChangeBackGround();
+	}
+
+	private void PopulateTileColor(float min, float max)
+	{
+		for (int i = 0; i < TileColor.Length; i++)
+		{
+			Color c = new Color();
+			c.r = Random.Range(min, max) + GetSignValue(Random.Range(.001f, .15f));
+			c.g = Random.Range(min, max) + GetSignValue(Random.Range(.001f, .15f));
+			c.b = Random.Range(min, max) + GetSignValue(Random.Range(.001f, .15f));
+			c.a = 1.0f;
+			TileColor[i] = c;
+		}
+	}
+
+	private float GetSignValue(float _value)
+	{
+		return Random.Range(0, 2) == 0 ? _value : -_value;
 	}
 
 
@@ -146,15 +167,19 @@ public class BoardController : MonoBehaviour {
 				_tile.SetColor(_generatorColor);
 			} else {
 				Color _mixColor = new Color();
-				Color _genColor = _generatorColor;
-				float _difficulty = GameManager.Instance.score;
-				float _rate = _difficulty / 10.0f;
-				//float _difference = ((float)i / (float)interactiveTile.Count) + 1.0f / (1 + _rate);
-				float _difference = ((float)i / (float)interactiveTile.Count) / 2.0f + .20f;
-				float _resultValue = GetColorValue(_difference);
-				_mixColor.r = _genColor.r + _resultValue;
-				_mixColor.g = _genColor.g + _resultValue;
-				_mixColor.b = _genColor.b + _resultValue;
+
+				float _min = .6f;
+				float _max = .7f;
+				float _divider = 10.0f;
+				float _r = Random.Range(_min, _max) + GetColorValue((float) i / _divider);
+				float _g = Random.Range(_min, _max) + GetColorValue((float) i / _divider);
+				float _b = Random.Range(_min, _max) + GetColorValue((float) i / _divider);
+				Color _genColor = TileColor[Random.Range(0, TileColor.Length - 1)];
+
+
+				_mixColor.r = _genColor.r;
+				_mixColor.g = _genColor.g;
+				_mixColor.b = _genColor.b;
 				_mixColor.a = 1.0f;
 				_mixColor = NormalizeColor(_mixColor);
 				_tile.SetColor(_mixColor);
@@ -166,7 +191,7 @@ public class BoardController : MonoBehaviour {
 
 	private float GetColorValue(float _difference)
 	{
-		return (Random.Range(0, 2) == 0) ? _difference : _difference;
+		return (Random.Range(0, 2) == 0) ? _difference : -_difference;
 	}
 
 	/// <summary>
@@ -291,6 +316,8 @@ public class BoardController : MonoBehaviour {
 		GenerateInteractiveTileColor();
 
 		_flashAnimator.SetTrigger("Trigger");
-
 	}
+
+
+
 }

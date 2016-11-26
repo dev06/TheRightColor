@@ -187,56 +187,56 @@ public class StateManager : MonoBehaviour {
 		switch (state)
 		{
 			case State.Game:
-			{
-				//EnableCanvas("GameCanvas");
-				if (EventManager.OnGameStateActive != null)
 				{
-					EventManager.OnGameStateActive();
+					//EnableCanvas("GameCanvas");
+					if (EventManager.OnGameStateActive != null)
+					{
+						EventManager.OnGameStateActive();
+					}
+					GameManager.Instance.state = state;
+					break;
 				}
-				GameManager.Instance.state = state;
-				break;
-			}
 
 			case State.Menu:
-			{
-				//	EnableCanvas("MenuCanvas");
-				if (EventManager.OnMenuStateActive != null)
 				{
-					EventManager.OnMenuStateActive();
-				}
+					//	EnableCanvas("MenuCanvas");
+					if (EventManager.OnMenuStateActive != null)
+					{
+						EventManager.OnMenuStateActive();
+					}
 
-				GameManager.Instance.state = state;
-				break;
-			}
+					GameManager.Instance.state = state;
+					break;
+				}
 
 			case State.Control:
-			{
-				//	EnableCanvas("ControlCanvas");
-				if (EventManager.OnControlStateActive != null)
 				{
-					EventManager.OnControlStateActive();
+					//	EnableCanvas("ControlCanvas");
+					if (EventManager.OnControlStateActive != null)
+					{
+						EventManager.OnControlStateActive();
+					}
+					GameManager.Instance.state = state;
+					break;
 				}
-				GameManager.Instance.state = state;
-				break;
-			}
 			case State.Setting:
-			{
-				if (EventManager.OnSettingStateActive != null)
 				{
-					EventManager.OnSettingStateActive();
+					if (EventManager.OnSettingStateActive != null)
+					{
+						EventManager.OnSettingStateActive();
+					}
+					GameManager.Instance.state = state;
+					break;
 				}
-				GameManager.Instance.state = state;
-				break;
-			}
 			case State.Credit:
-			{
-				if (EventManager.OnCreditStateActive != null)
 				{
-					EventManager.OnCreditStateActive();
+					if (EventManager.OnCreditStateActive != null)
+					{
+						EventManager.OnCreditStateActive();
+					}
+					GameManager.Instance.state = state;
+					break;
 				}
-				GameManager.Instance.state = state;
-				break;
-			}
 		}
 	}
 }
@@ -249,4 +249,5 @@ public enum State
 	Control,
 	Credit,
 	GameOver,
+	Pause,
 }

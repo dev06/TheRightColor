@@ -17,6 +17,7 @@ public class TimerController : MonoBehaviour {
 		EventManager.OnIncorrectColor += OnIncorrectColor;
 		EventManager.OnBreakStreak += OnBreakStreak;
 		EventManager.OnFirstTouch += OnFirstTouch;
+		EventManager.OnRetryButtonPress += ResetBoard;
 	}
 
 	void OnDisable()
@@ -25,6 +26,7 @@ public class TimerController : MonoBehaviour {
 		EventManager.OnIncorrectColor -= OnIncorrectColor;
 		EventManager.OnFirstTouch -= OnFirstTouch;
 		EventManager.OnBreakStreak -= OnBreakStreak;
+		EventManager.OnRetryButtonPress -= ResetBoard;
 	}
 
 
@@ -43,7 +45,7 @@ public class TimerController : MonoBehaviour {
 
 			if (_canDepleteTime)
 			{
-				//DepleteTime(1.0f);
+				DepleteTime(1.0f);
 			}
 
 			if (!Application.isEditor)
@@ -114,5 +116,19 @@ public class TimerController : MonoBehaviour {
 	public void OnIncorrectColor()
 	{
 		remainingTime -= MasterVar.Incorrect_Color_Penalty;
+	}
+
+	private void ResetBoard()
+	{
+		baseTime = MasterVar.Base_Time;
+		remainingTime = baseTime;
+		GameManager.Instance.score = 0;
+		GameManager.Instance.state = State.Game;
+		_canDepleteTime = false;
+		_timerCounterImage.fillAmount = remainingTime;
+
+
+
+
 	}
 }
