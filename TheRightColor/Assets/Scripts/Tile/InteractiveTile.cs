@@ -5,6 +5,7 @@ public class InteractiveTile: Tile
 {
 
 	private bool _canPlayIncorrectAnim;
+	private GameObject _overlay;
 
 	public GeneratorTile generatorTile;
 
@@ -27,7 +28,7 @@ public class InteractiveTile: Tile
 	void Start()
 	{
 		interactiveTileAnim = GameObject.FindWithTag("Container/InteractiveContainer").GetComponent<Animation>();
-
+		_overlay = transform.FindChild("overlay").gameObject;
 	}
 
 	void Update()
@@ -39,10 +40,12 @@ public class InteractiveTile: Tile
 			_canPlayIncorrectAnim = false;
 		}
 
+
+		_overlay.SetActive((generatorTile.color == tileImage.color) && GameManager.Instance.score <= MasterVar.Tutorial_TileCount);
+
 	}
 	public override void SetColor(Color c)
 	{
-
 		tileImage.color = c;
 	}
 

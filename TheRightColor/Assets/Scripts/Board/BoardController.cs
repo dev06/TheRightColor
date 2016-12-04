@@ -206,41 +206,41 @@ public class BoardController : MonoBehaviour {
 			switch (_cornerTileID)
 			{
 				case 0:
-					{
-						_sprite = Sprite.Create(AppResources.InteractiveTile_BottomLeft_Texture,
-						                        new Rect(0, 0, AppResources.InteractiveTile_BottomLeft_Texture.width,
-						                                 AppResources.InteractiveTile_BottomLeft_Texture.height),
-						                        new Vector2(.5f, .5f));
+				{
+					_sprite = Sprite.Create(AppResources.InteractiveTile_BottomLeft_Texture,
+					                        new Rect(0, 0, AppResources.InteractiveTile_BottomLeft_Texture.width,
+					                                 AppResources.InteractiveTile_BottomLeft_Texture.height),
+					                        new Vector2(.5f, .5f));
 
-						break;
-					}
+					break;
+				}
 				case 1:
-					{
-						_sprite = Sprite.Create(AppResources.InteractiveTile_TopLeft_Texture,
-						                        new Rect(0, 0, AppResources.InteractiveTile_TopLeft_Texture.width,
-						                                 AppResources.InteractiveTile_TopLeft_Texture.height),
-						                        new Vector2(.5f, .5f));
+				{
+					_sprite = Sprite.Create(AppResources.InteractiveTile_TopLeft_Texture,
+					                        new Rect(0, 0, AppResources.InteractiveTile_TopLeft_Texture.width,
+					                                 AppResources.InteractiveTile_TopLeft_Texture.height),
+					                        new Vector2(.5f, .5f));
 
-						break;
-					}
+					break;
+				}
 				case 2:
-					{
-						_sprite = Sprite.Create(AppResources.InteractiveTile_TopRight_Texture,
-						                        new Rect(0, 0, AppResources.InteractiveTile_TopRight_Texture.width,
-						                                 AppResources.InteractiveTile_TopRight_Texture.height),
-						                        new Vector2(.5f, .5f));
+				{
+					_sprite = Sprite.Create(AppResources.InteractiveTile_TopRight_Texture,
+					                        new Rect(0, 0, AppResources.InteractiveTile_TopRight_Texture.width,
+					                                 AppResources.InteractiveTile_TopRight_Texture.height),
+					                        new Vector2(.5f, .5f));
 
-						break;
-					}
+					break;
+				}
 				case 3:
-					{
-						_sprite = Sprite.Create(AppResources.InteractiveTile_BottomRight_Texture,
-						                        new Rect(0, 0, AppResources.InteractiveTile_BottomRight_Texture.width,
-						                                 AppResources.InteractiveTile_BottomRight_Texture.height),
-						                        new Vector2(.5f, .5f));
+				{
+					_sprite = Sprite.Create(AppResources.InteractiveTile_BottomRight_Texture,
+					                        new Rect(0, 0, AppResources.InteractiveTile_BottomRight_Texture.width,
+					                                 AppResources.InteractiveTile_BottomRight_Texture.height),
+					                        new Vector2(.5f, .5f));
 
-						break;
-					}
+					break;
+				}
 			}
 		}
 

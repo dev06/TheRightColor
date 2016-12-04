@@ -13,8 +13,8 @@ TagManager:
   - Container/CanvasContainer
   - Container/ButtonContainer
   - Canvas/MenuCanvas
-  - Container/ControlContainer
-  - Canvas/ControlCanvas
+  - Container/ShopContainer
+  - Canvas/ShopCanvas
   - Canvas/SettingCanvas
   - Canvas/CreditCanvas
   - Panel/BackGround
@@ -31,6 +31,7 @@ TagManager:
   - Container/ChallengeContainer
   - Container/Challenge
   - Canvas/PauseCanvas
+  - Shop/Tabs
   layers:
   - Default
   - TransparentFX

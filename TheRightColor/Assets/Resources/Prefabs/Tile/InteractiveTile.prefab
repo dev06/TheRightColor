@@ -12,6 +12,7 @@ GameObject:
   - 114: {fileID: 11499690}
   - 114: {fileID: 11426950}
   - 111: {fileID: 11188102}
+  - 114: {fileID: 11455124}
   m_Layer: 5
   m_Name: InteractiveTile
   m_TagString: Tile/InteractiveTile
@@ -29,13 +30,14 @@ GameObject:
   - 224: {fileID: 22480172}
   - 222: {fileID: 22284096}
   - 114: {fileID: 11474606}
+  - 114: {fileID: 11413956}
   m_Layer: 5
   m_Name: overlay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!111 &11188102
 Animation:
   m_ObjectHideFlags: 1
@@ -51,6 +53,17 @@ Animation:
   m_PlayAutomatically: 0
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!114 &11413956
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 198566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d97ba9aaa189c541a94d0d3fcd502eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11426950
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -64,6 +77,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tileID: 1
   generatorTile: {fileID: 0}
+  interactiveTileAnim: {fileID: 0}
+--- !u!114 &11455124
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 180682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1200242548, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShowMaskGraphic: 1
 --- !u!114 &11474606
 MonoBehaviour:
   m_ObjectHideFlags: 1

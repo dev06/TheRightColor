@@ -41,8 +41,9 @@ public class SettingWorldContainer : MonoBehaviour {
 					}
 				}
 			}
-
 		}
+
+
 	}
 	void OnEnable()
 	{
@@ -58,7 +59,6 @@ public class SettingWorldContainer : MonoBehaviour {
 		EventManager.OnTimerUp -= OnTimerUp;
 
 	}
-
 
 
 	void OnSwipeUp()

@@ -6,9 +6,10 @@ public class TimerController : MonoBehaviour {
 	public float baseTime;
 	public float remainingTime;
 	private float _timerVel;
+	private GameObject _timerCounter;
 	private Image _timerCounterImage;
 	private bool _eventTriggered;
-
+	private Animation _timerCounterAnimation;
 	private bool _canDepleteTime;
 
 	void OnEnable()
@@ -32,7 +33,10 @@ public class TimerController : MonoBehaviour {
 
 	void Start ()
 	{
-		_timerCounterImage = transform.FindChild("TimerCounter").GetComponent<Image>();
+		_timerCounter = transform.FindChild("TimerCounter").gameObject;
+		_timerCounterImage = _timerCounter.GetComponent<Image>();
+		_timerCounterAnimation = _timerCounter.GetComponent<Animation>();
+
 		baseTime = MasterVar.Base_Time;
 		remainingTime = baseTime;
 	}
@@ -66,6 +70,10 @@ public class TimerController : MonoBehaviour {
 					_eventTriggered = true;
 				}
 			}
+
+			TriggerTimerAlert(_timerCounterImage.fillAmount < MasterVar.ActivateTimerAlert);
+
+
 		}
 	}
 
@@ -118,17 +126,26 @@ public class TimerController : MonoBehaviour {
 		remainingTime -= MasterVar.Incorrect_Color_Penalty;
 	}
 
+	private void TriggerTimerAlert(bool state)
+	{
+		if (state)
+		{
+			_timerCounterAnimation.Play(_timerCounterAnimation.clip.name);
+		} else {
+			_timerCounterImage.color = new Color(1f, 1f, 1f, 1f);
+			_timerCounterAnimation.Stop();
+		}
+	}
+
 	private void ResetBoard()
 	{
-		baseTime = MasterVar.Base_Time;
-		remainingTime = baseTime;
-		GameManager.Instance.score = 0;
-		GameManager.Instance.state = State.Game;
-		_canDepleteTime = false;
-		_timerCounterImage.fillAmount = remainingTime;
+		// baseTime = MasterVar.Base_Time;
+		// remainingTime = baseTime;
+		// GameManager.Instance.score = 0;
+		// GameManager.Instance.state = State.Menu;
+		// _canDepleteTime = false;
+		// _timerCounterImage.fillAmount = remainingTime;
 
-
-
-
+		UnityEngine.SceneManagement.SceneManager.LoadScene("Game");
 	}
 }

@@ -22,6 +22,9 @@ public class AppResources
 
 
 
+	public static GameObject Tab = (GameObject)Resources.Load("Prefabs/UI/Shop/Tabs/tab_template");
+
+
 
 	public static string Alan_Walker = "https://soundcloud.com/alanwalker";
 
