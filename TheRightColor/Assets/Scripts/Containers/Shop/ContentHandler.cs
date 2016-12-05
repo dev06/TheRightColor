@@ -14,6 +14,9 @@ public class ContentHandler : MonoBehaviour {
 
 	public ContentCreator.ContentType contentType;
 
+
+
+
 	void Start()
 	{
 		Instance = this;
@@ -28,7 +31,9 @@ public class ContentHandler : MonoBehaviour {
 			elements.Add(transform.GetChild(i).GetComponent<ElementHandler>());
 		}
 
+
 		StartCoroutine("CalcuateOffsetValue");
+
 	}
 
 

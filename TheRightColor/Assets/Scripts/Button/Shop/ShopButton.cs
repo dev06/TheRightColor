@@ -12,7 +12,21 @@ public class ShopButton : MonoBehaviour, IPointerClickHandler {
 		Aesthetics,
 		Features,
 		Achievements,
-		Particles,
+
+		ELE_Particles,
+
+		//AESTHETICS
+		SUB_TRIANGLE,
+		SUB_CIRCLE,
+		SUB_SQUARE,
+		SUB_BAR,
+		SUB_BK_DEFAULT,
+
+		//FEATURES
+		SUB_MUSIC_FADE,
+		SUB_PAUSE,
+		SUB_SAVESCORE,
+
 	}
 
 	public Shop_ButtonID buttonID;

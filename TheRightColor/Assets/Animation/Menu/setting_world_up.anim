@@ -24,11 +24,6 @@ AnimationClip:
         inSlope: 0
         outSlope: 0
         tangentMode: 10
-      - time: 0.33333334
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
       - time: 0.41666666
         value: 0
         inSlope: 0
@@ -46,23 +41,38 @@ AnimationClip:
       m_Curve:
       - time: 0
         value: 0
-        inSlope: 3966
-        outSlope: 3966
-        tangentMode: 10
-      - time: 0.33333334
-        value: 1322
-        inSlope: 2583
-        outSlope: 2583
+        inSlope: 4608
+        outSlope: 4608
         tangentMode: 10
       - time: 0.41666666
-        value: 1422
-        inSlope: 1200.0002
-        outSlope: 1200.0002
+        value: 1920
+        inSlope: 4608
+        outSlope: 4608
         tangentMode: 10
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_AnchoredPosition.y
+    path: 
+    classID: 224
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 0.41666666
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_SizeDelta.y
     path: 
     classID: 224
     script: {fileID: 0}
@@ -104,11 +114,6 @@ AnimationClip:
         inSlope: 0
         outSlope: 0
         tangentMode: 10
-      - time: 0.33333334
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
       - time: 0.41666666
         value: 0
         inSlope: 0
@@ -126,23 +131,38 @@ AnimationClip:
       m_Curve:
       - time: 0
         value: 0
-        inSlope: 3966
-        outSlope: 3966
-        tangentMode: 10
-      - time: 0.33333334
-        value: 1322
-        inSlope: 2583
-        outSlope: 2583
+        inSlope: 4608
+        outSlope: 4608
         tangentMode: 10
       - time: 0.41666666
-        value: 1422
-        inSlope: 1200.0002
-        outSlope: 1200.0002
+        value: 1920
+        inSlope: 4608
+        outSlope: 4608
         tangentMode: 10
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_AnchoredPosition.y
+    path: 
+    classID: 224
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 0.41666666
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_SizeDelta.y
     path: 
     classID: 224
     script: {fileID: 0}

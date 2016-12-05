@@ -47,11 +47,11 @@ public class BoardController : MonoBehaviour {
 
 	void Update ()
 	{
-		if (_interactiveTileContainer != null)
-		{
-			_interactiveTileContainer_pos.x = 0;
-			_interactiveTileContainer.localPosition = _interactiveTileContainer_pos;
-		}
+		// if (_interactiveTileContainer != null)
+		// {
+		// 	_interactiveTileContainer_pos.x = 0;
+		// 	_interactiveTileContainer.localPosition = _interactiveTileContainer_pos;
+		// }
 
 		ChangeBackGround();
 	}
