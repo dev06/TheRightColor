@@ -14,7 +14,7 @@ public class SpectrumController : MonoBehaviour {
 	private float _pitchVel;
 	private float vel;
 	private float _pauseVel;
-	private float[] spectrum = new float[256];
+	private float[] spectrum = new float[64];
 	private Transform _barContainer;
 	private RectTransform _barContainerRT;
 	private List<AnimatedObject> _animatedObject;
@@ -52,7 +52,7 @@ public class SpectrumController : MonoBehaviour {
 
 	void Start ()
 	{
-		_barCount = 6;
+		_barCount = 5;
 		_barContainer = transform.GetChild(0);
 		_barContainerRT = _barContainer.GetComponent<RectTransform>();
 
@@ -91,7 +91,7 @@ public class SpectrumController : MonoBehaviour {
 		_volume = GameObject.FindWithTag("SettingOption/Volume").GetComponent<Slider>();
 		PopulateBars();
 		UpdateAudioSetting();
-		_audioSource.time = Random.Range(0, _audioSource.clip.length / 4.0f);
+		//_audioSource.time = Random.Range(0, _audioSource.clip.length / 4.0f);
 
 		if (PlayerPrefs.HasKey("Volume"))
 		{
@@ -170,7 +170,7 @@ public class SpectrumController : MonoBehaviour {
 			{
 				RectTransform _rectTransform = _barContainer.GetChild(i).GetComponent<RectTransform>();
 				float _scaleY = _rectTransform.localScale.y;
-				_scaleY = Mathf.SmoothDamp(_scaleY, spectrum[i] * 10, ref vel, .12f);
+				_scaleY = Mathf.SmoothDamp(_scaleY, spectrum[i] * 50, ref vel, .2f);
 				if (_scaleY < 0) { _scaleY = 0; }
 				_rectTransform.localScale = new Vector3(1, _scaleY, 1);
 
@@ -211,51 +211,51 @@ public class SpectrumController : MonoBehaviour {
 		switch (state)
 		{
 			case State.Menu:
-			{
-				for (int ii = 0; ii < _menuObjects.Count; ii++)
 				{
-					UpdateTileEntities(spectrum[ii], _menuObjects[ii].anim_object, _menuObjects[ii].defaultScale, _menuObjects[ii].velX, _menuObjects[ii].velY, _menuObjects[ii].intensity);
+					for (int ii = 0; ii < _menuObjects.Count; ii++)
+					{
+						UpdateTileEntities(spectrum[ii], _menuObjects[ii].anim_object, _menuObjects[ii].defaultScale, _menuObjects[ii].velX, _menuObjects[ii].velY, _menuObjects[ii].intensity);
+					}
+					break;
 				}
-				break;
-			}
 
 			case State.Game:
-			{
-				for (int ii = 0; ii < _gameObjects.Count; ii++)
 				{
-					UpdateTileEntities(spectrum[ii], _gameObjects[ii].anim_object, _gameObjects[ii].defaultScale, _gameObjects[ii].velX, _gameObjects[ii].velY, _gameObjects[ii].intensity);
-				}
-				break;
+					for (int ii = 0; ii < _gameObjects.Count; ii++)
+					{
+						UpdateTileEntities(spectrum[ii], _gameObjects[ii].anim_object, _gameObjects[ii].defaultScale, _gameObjects[ii].velX, _gameObjects[ii].velY, _gameObjects[ii].intensity);
+					}
+					break;
 
-			}
+				}
 
 			case State.Control:
-			{
-				for (int ii = 0; ii < _tutorialObjects.Count; ii++)
 				{
-					UpdateTileEntities(spectrum[ii], _tutorialObjects[ii].anim_object, _tutorialObjects[ii].defaultScale, _tutorialObjects[ii].velX, _tutorialObjects[ii].velY, _tutorialObjects[ii].intensity);
+					for (int ii = 0; ii < _tutorialObjects.Count; ii++)
+					{
+						UpdateTileEntities(spectrum[ii], _tutorialObjects[ii].anim_object, _tutorialObjects[ii].defaultScale, _tutorialObjects[ii].velX, _tutorialObjects[ii].velY, _tutorialObjects[ii].intensity);
+					}
+					break;
 				}
-				break;
-			}
 
 			case State.Credit:
-			{
-				for (int ii = 0; ii < _creditObjects.Count; ii++)
 				{
-					UpdateTileEntities(spectrum[ii], _creditObjects[ii].anim_object, _creditObjects[ii].defaultScale, _creditObjects[ii].velX, _creditObjects[ii].velY, _creditObjects[ii].intensity);
-				}
-				break;
+					for (int ii = 0; ii < _creditObjects.Count; ii++)
+					{
+						UpdateTileEntities(spectrum[ii], _creditObjects[ii].anim_object, _creditObjects[ii].defaultScale, _creditObjects[ii].velX, _creditObjects[ii].velY, _creditObjects[ii].intensity);
+					}
+					break;
 
-			}
+				}
 			case State.Setting:
-			{
-				for (int ii = 0; ii < _settingObjects.Count; ii++)
 				{
-					UpdateTileEntities(spectrum[ii], _settingObjects[ii].anim_object, _settingObjects[ii].defaultScale, _settingObjects[ii].velX, _settingObjects[ii].velY, _settingObjects[ii].intensity);
-				}
-				break;
+					for (int ii = 0; ii < _settingObjects.Count; ii++)
+					{
+						UpdateTileEntities(spectrum[ii], _settingObjects[ii].anim_object, _settingObjects[ii].defaultScale, _settingObjects[ii].velX, _settingObjects[ii].velY, _settingObjects[ii].intensity);
+					}
+					break;
 
-			}
+				}
 
 
 		}

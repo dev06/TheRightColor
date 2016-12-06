@@ -7,13 +7,20 @@ public class TabButton : ShopButton {
 	private GameObject _activeObj;
 	private Toggle _toggle;
 	private Image _activeObjImg;
+	private RectTransform _rt;
 	void Start ()
 	{
 		_activeObj = transform.FindChild("active").gameObject;
 		_toggle =  GetComponent<Toggle>();
 		_activeObjImg = _activeObj.GetComponent<Image>();
-
+		_rt = GetComponent<RectTransform>();
+		Setup();
 		StartCoroutine("OpenBox");
+	}
+
+	void Setup()
+	{
+
 	}
 
 	IEnumerator OpenBox()

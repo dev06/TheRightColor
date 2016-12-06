@@ -45,7 +45,7 @@ public class Tab_GUI : MonoBehaviour {
 			tr.sizeDelta = new Vector2(sx, sy);
 
 			tr.anchoredPosition = new Vector3(i * sx, 0, tr.position.z);
-
+			Debug.Log(tr.offsetMin);
 		}
 	}
 
