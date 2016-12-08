@@ -27,6 +27,7 @@ public class ControlWorldContainer : MonoBehaviour {
 					// 	EventManager.OnSwipeAninmationFinished();
 					// }
 					_triggeredEvent = true;
+
 				}
 			} else {
 				if (_swipeRight)
@@ -38,6 +39,7 @@ public class ControlWorldContainer : MonoBehaviour {
 						// 	EventManager.OnSwipeAninmationFinished();
 						// }
 						_triggeredEvent = true;
+
 					}
 				}
 			}
@@ -68,6 +70,7 @@ public class ControlWorldContainer : MonoBehaviour {
 				_swipeRight = true;
 				_triggeredEvent = false;
 				AnimationController.Play(_animation, "control_world_left", 1);
+
 			}
 		}
 
@@ -79,7 +82,7 @@ public class ControlWorldContainer : MonoBehaviour {
 		{
 			if (GameManager.Instance.state == State.Menu)
 			{
-				_swipeRight = true;
+				_swipeLeft = true;
 				_triggeredEvent = false;
 				AnimationController.Play(_animation, "control_world_left", -1);
 			}

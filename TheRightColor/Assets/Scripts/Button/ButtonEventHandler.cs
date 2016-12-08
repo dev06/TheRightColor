@@ -28,33 +28,33 @@ public class ButtonEventHandler : MonoBehaviour, IPointerClickHandler {
 		switch (buttonID)
 		{
 			case ButtonID.Pause:
+			{
+				GameManager.Instance.state = GameManager.Instance.state == State.Pause ? State.Game : State.Pause;
+				// triggers an event for pause state or game state
+				if (GameManager.Instance.state == State.Pause)
 				{
-					GameManager.Instance.state = GameManager.Instance.state == State.Pause ? State.Game : State.Pause;
-					// triggers an event for pause state or game state
-					if (GameManager.Instance.state == State.Pause)
+					if (EventManager.OnPauseButtonPress != null)
 					{
-						if (EventManager.OnPauseButtonPress != null)
-						{
-							EventManager.OnPauseButtonPress();
-						}
-
-						if (EventManager.OnPauseStateActive != null)
-						{
-							EventManager.OnPauseStateActive();
-							_pausePanel.enabled = true;
-						}
-
-
-					} else if (GameManager.Instance.state == State.Game)
-					{
-						if (EventManager.OnGameStateActive != null)
-						{
-							EventManager.OnGameStateActive();
-							_pausePanel.enabled = false;
-						}
+						EventManager.OnPauseButtonPress();
 					}
-					break;
+
+					if (EventManager.OnPauseStateActive != null)
+					{
+						EventManager.OnPauseStateActive();
+						_pausePanel.enabled = true;
+					}
+
+
+				} else if (GameManager.Instance.state == State.Game)
+				{
+					if (EventManager.OnGameStateActive != null)
+					{
+						EventManager.OnGameStateActive();
+						_pausePanel.enabled = false;
+					}
 				}
+				break;
+			}
 		}
 
 	}
@@ -80,4 +80,6 @@ public enum ButtonID
 	Pause,
 	Resume,
 	Retry,
+	DIA_Positive,
+	DIA_Negative,
 }

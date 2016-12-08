@@ -29,7 +29,7 @@ public class ElementHandler : ShopButton {
 	private Vector3 				_openTargetVector;
 	private Vector2 				_closeTargetVector;
 
-
+	float elementHeight = 150f;
 	void Start ()
 	{
 		subElementPrefab = (GameObject)Resources.Load("Prefabs/UI/Shop/Content/subelement");
@@ -43,6 +43,7 @@ public class ElementHandler : ShopButton {
 		_elementName = transform.FindChild("name").GetComponent<Text>();
 		_toggle = GetComponent<Toggle>();
 		rectTransform = GetComponent<RectTransform>();
+		rectTransform.sizeDelta = new Vector2(rectTransform.sizeDelta.x, elementHeight);
 		width = rectTransform.rect.width;
 		height = rectTransform.rect.height;
 		Initialize();
@@ -76,8 +77,8 @@ public class ElementHandler : ShopButton {
 			rt.localPosition = new Vector3(0, 0, 0);
 			rt.anchorMin = new Vector2(0, 0);
 			rt.anchorMax = new Vector2(1, 1);
-			rt.offsetMax = new Vector2(-100, 0);
-			rt.offsetMin = new Vector2(100, 0);
+			rt.offsetMax = new Vector2(-elementHeight, 0);
+			rt.offsetMin = new Vector2(elementHeight, 0);
 			childrenHeight = rt.rect.height;
 			rt.GetComponent<SubelementHandler>().constructor = s;
 			rt.GetComponent<SubelementHandler>().SetTargetPosition(new Vector3(0,
@@ -113,8 +114,8 @@ public class ElementHandler : ShopButton {
 
 					_openTargetVector.x = 0;
 
-					_openTargetVector.y = (lastSublement.anchoredPosition.y - (childIndex * previousElement.height) - 100.0f)
-					                      - (_paddingTop - 1.0f) * 100;
+					_openTargetVector.y = (lastSublement.anchoredPosition.y - (childIndex * previousElement.height) - elementHeight)
+					                      - (_paddingTop - 1.0f) * elementHeight;
 
 					_openTargetVector.z = 0;
 

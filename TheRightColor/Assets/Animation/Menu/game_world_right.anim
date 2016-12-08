@@ -21,13 +21,13 @@ AnimationClip:
       m_Curve:
       - time: 0
         value: 0
-        inSlope: 2592
-        outSlope: 2592
+        inSlope: 3600
+        outSlope: 3600
         tangentMode: 10
       - time: 0.41666666
-        value: 1080
-        inSlope: 2592
-        outSlope: 2592
+        value: 1500
+        inSlope: 3600
+        outSlope: 3600
         tangentMode: 10
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -53,6 +53,26 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_AnchoredPosition.y
+    path: 
+    classID: 224
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 0.41666666
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_SizeDelta.x
     path: 
     classID: 224
     script: {fileID: 0}
@@ -91,13 +111,13 @@ AnimationClip:
       m_Curve:
       - time: 0
         value: 0
-        inSlope: 2592
-        outSlope: 2592
+        inSlope: 3600
+        outSlope: 3600
         tangentMode: 10
       - time: 0.41666666
-        value: 1080
-        inSlope: 2592
-        outSlope: 2592
+        value: 1500
+        inSlope: 3600
+        outSlope: 3600
         tangentMode: 10
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -123,6 +143,26 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_AnchoredPosition.y
+    path: 
+    classID: 224
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 0.41666666
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_SizeDelta.x
     path: 
     classID: 224
     script: {fileID: 0}

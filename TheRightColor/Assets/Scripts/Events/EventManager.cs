@@ -27,6 +27,10 @@ public class EventManager : MonoBehaviour {
 	public static ButtonPress OnPauseButtonPress;
 
 
+	public delegate void ShopButtonPress(ShopButton.Shop_ButtonID id);
+	public static ShopButtonPress OnSubelementPress;
+
+
 
 	public delegate void GamePlay();
 	public static GamePlay OnFirstTouch;
@@ -48,6 +52,11 @@ public class EventManager : MonoBehaviour {
 	public static Swipe OnSwipeRight;
 	public static Swipe OnSwipeUp;
 	public static Swipe OnSwipeDown;
+
+	public delegate void Dialog();
+	public static Dialog OnDialogPositive;
+	public static Dialog OnDialogNegative;
+
 
 
 	public delegate void Game();

@@ -10,6 +10,7 @@ public class SubelementHandler : ShopButton {
 	public Subelement constructor;
 	public Vector2 _targetAnchoredPosition;
 	private Text _name;
+
 	bool cap;
 	void OnEnable()
 	{
@@ -19,7 +20,7 @@ public class SubelementHandler : ShopButton {
 	void OnDisable()
 	{
 		cap = false;
-
+		StopAllCoroutines();
 	}
 
 	void Start ()
@@ -48,7 +49,9 @@ public class SubelementHandler : ShopButton {
 		{
 			if (_children.activeSelf)
 			{
+
 				StartCoroutine("Open");
+
 				cap = true;
 			}
 
@@ -59,9 +62,9 @@ public class SubelementHandler : ShopButton {
 	IEnumerator Open()
 	{
 		Reset();
-
-		while (Vector2.Distance(_targetAnchoredPosition,  _anchoredPosition) > .1f)
+		while (Vector2.Distance(_targetAnchoredPosition,  _anchoredPosition) > .5f)
 		{
+
 			_anchoredPosition = Vector2.Lerp(_anchoredPosition, _targetAnchoredPosition, .15f);
 			GetComponent<RectTransform>().anchoredPosition = _anchoredPosition;
 			yield return new WaitForSeconds(Time.deltaTime);
@@ -84,8 +87,11 @@ public class SubelementHandler : ShopButton {
 	public override void OnPointerClick(PointerEventData data)
 	{
 		base.OnPointerClick(data);
-		Debug.Log(buttonID);
 
+		if (EventManager.OnSubelementPress != null)
+		{
+			EventManager.OnSubelementPress(buttonID);
+		}
 	}
 }
 

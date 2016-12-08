@@ -7,7 +7,7 @@ public class MasterVar
 
 	public static float Base_Time = 10.0f;
 
-	public static int Tutorial_TileCount = 5;
+	public static int Tutorial_TileCount = 500;
 	public static float Panel_BackGroundScale = .97f;
 	public static Color Panel_WorldImageColor = new Color(1.0f, 1.0f, 1.0f, 1.0f);
 

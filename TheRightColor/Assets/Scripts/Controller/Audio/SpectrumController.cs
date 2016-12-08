@@ -170,17 +170,14 @@ public class SpectrumController : MonoBehaviour {
 			{
 				RectTransform _rectTransform = _barContainer.GetChild(i).GetComponent<RectTransform>();
 				float _scaleY = _rectTransform.localScale.y;
-				_scaleY = Mathf.SmoothDamp(_scaleY, spectrum[i] * 50, ref vel, .2f);
+				_scaleY = Mathf.SmoothDamp(_scaleY, spectrum[i] * 20, ref vel, .2f);
 				if (_scaleY < 0) { _scaleY = 0; }
 				_rectTransform.localScale = new Vector3(1, _scaleY, 1);
 
 			}
 
 			AnimateContainers(GameManager.Instance.state);
-			// for (int ii = 0; ii < _animatedObject.Count; ii++)
-			// {
-			// 	UpdateTileEntities(spectrum[ii], _animatedObject[ii].anim_object, _animatedObject[ii].defaultScale, _animatedObject[ii].velX, _animatedObject[ii].velY, _animatedObject[ii].intensity);
-			// }
+
 		}
 
 		if (GameManager.Instance.state == State.Pause)
@@ -211,51 +208,51 @@ public class SpectrumController : MonoBehaviour {
 		switch (state)
 		{
 			case State.Menu:
+			{
+				for (int ii = 0; ii < _menuObjects.Count; ii++)
 				{
-					for (int ii = 0; ii < _menuObjects.Count; ii++)
-					{
-						UpdateTileEntities(spectrum[ii], _menuObjects[ii].anim_object, _menuObjects[ii].defaultScale, _menuObjects[ii].velX, _menuObjects[ii].velY, _menuObjects[ii].intensity);
-					}
-					break;
+					UpdateTileEntities(spectrum[ii], _menuObjects[ii].anim_object, _menuObjects[ii].defaultScale, _menuObjects[ii].velX, _menuObjects[ii].velY, _menuObjects[ii].intensity);
 				}
+				break;
+			}
 
 			case State.Game:
+			{
+				for (int ii = 0; ii < _gameObjects.Count; ii++)
 				{
-					for (int ii = 0; ii < _gameObjects.Count; ii++)
-					{
-						UpdateTileEntities(spectrum[ii], _gameObjects[ii].anim_object, _gameObjects[ii].defaultScale, _gameObjects[ii].velX, _gameObjects[ii].velY, _gameObjects[ii].intensity);
-					}
-					break;
-
+					UpdateTileEntities(spectrum[ii], _gameObjects[ii].anim_object, _gameObjects[ii].defaultScale, _gameObjects[ii].velX, _gameObjects[ii].velY, _gameObjects[ii].intensity);
 				}
+				break;
+
+			}
 
 			case State.Control:
+			{
+				for (int ii = 0; ii < _tutorialObjects.Count; ii++)
 				{
-					for (int ii = 0; ii < _tutorialObjects.Count; ii++)
-					{
-						UpdateTileEntities(spectrum[ii], _tutorialObjects[ii].anim_object, _tutorialObjects[ii].defaultScale, _tutorialObjects[ii].velX, _tutorialObjects[ii].velY, _tutorialObjects[ii].intensity);
-					}
-					break;
+					UpdateTileEntities(spectrum[ii], _tutorialObjects[ii].anim_object, _tutorialObjects[ii].defaultScale, _tutorialObjects[ii].velX, _tutorialObjects[ii].velY, _tutorialObjects[ii].intensity);
 				}
+				break;
+			}
 
 			case State.Credit:
+			{
+				for (int ii = 0; ii < _creditObjects.Count; ii++)
 				{
-					for (int ii = 0; ii < _creditObjects.Count; ii++)
-					{
-						UpdateTileEntities(spectrum[ii], _creditObjects[ii].anim_object, _creditObjects[ii].defaultScale, _creditObjects[ii].velX, _creditObjects[ii].velY, _creditObjects[ii].intensity);
-					}
-					break;
-
+					UpdateTileEntities(spectrum[ii], _creditObjects[ii].anim_object, _creditObjects[ii].defaultScale, _creditObjects[ii].velX, _creditObjects[ii].velY, _creditObjects[ii].intensity);
 				}
+				break;
+
+			}
 			case State.Setting:
+			{
+				for (int ii = 0; ii < _settingObjects.Count; ii++)
 				{
-					for (int ii = 0; ii < _settingObjects.Count; ii++)
-					{
-						UpdateTileEntities(spectrum[ii], _settingObjects[ii].anim_object, _settingObjects[ii].defaultScale, _settingObjects[ii].velX, _settingObjects[ii].velY, _settingObjects[ii].intensity);
-					}
-					break;
-
+					UpdateTileEntities(spectrum[ii], _settingObjects[ii].anim_object, _settingObjects[ii].defaultScale, _settingObjects[ii].velX, _settingObjects[ii].velY, _settingObjects[ii].intensity);
 				}
+				break;
+
+			}
 
 
 		}

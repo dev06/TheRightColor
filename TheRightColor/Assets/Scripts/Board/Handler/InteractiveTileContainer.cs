@@ -8,7 +8,6 @@ public class InteractiveTileContainer : MonoBehaviour {
 	{
 		rt = GetComponent<RectTransform>();
 
-		Debug.Log(rt.offsetMax);
 	}
 
 	void Update ()
