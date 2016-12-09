@@ -32,6 +32,9 @@ TagManager:
   - Container/Challenge
   - Canvas/PauseCanvas
   - Shop/Tabs
+  - Canvas/ControlCanvas
+  - Shop/Aesthetics
+  - Shop/Features
   layers:
   - Default
   - TransparentFX

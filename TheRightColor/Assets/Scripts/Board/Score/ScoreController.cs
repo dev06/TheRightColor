@@ -29,6 +29,12 @@ public class ScoreController : MonoBehaviour {
 		{
 			SetHighScore(PlayerPrefs.GetFloat("Highscore"));
 		}
+
+
+		GameManager.Instance.tileCount = PlayerPrefs.GetInt("TileCount");
+
+
+
 	}
 
 	void Update ()
@@ -53,11 +59,19 @@ public class ScoreController : MonoBehaviour {
 		PlayerPrefs.SetFloat("Highscore", GameManager.Instance.highscore);
 	}
 
+
+
+
 	void OnTimerUp()
 	{
 		if (GameManager.Instance.score > GameManager.Instance.highscore)
 		{
 			SetHighScore(GameManager.Instance.score);
 		}
+
+		GameManager.Instance.tileCount += (int)GameManager.Instance.score;
+
+		PlayerPrefs.SetInt("TileCount", GameManager.Instance.tileCount);
+
 	}
 }

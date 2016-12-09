@@ -14,6 +14,12 @@ public class ShopButton : MonoBehaviour, IPointerClickHandler {
 		Achievements,
 
 		ELE_Particles,
+		ELE_SPECTRUM,
+		ELE_BACKGROUND,
+		ELE_MUSIC,
+		ELE_PAUSE,
+		ELE_SAVE,
+		ELE_EFFECTS,
 
 		//AESTHETICS
 		SUB_TRIANGLE,
@@ -21,6 +27,8 @@ public class ShopButton : MonoBehaviour, IPointerClickHandler {
 		SUB_SQUARE,
 		SUB_BAR,
 		SUB_BK_DEFAULT,
+		SUB_BLOOM,
+		SUB_FISHEYE,
 
 		//FEATURES
 		SUB_MUSIC_FADE,

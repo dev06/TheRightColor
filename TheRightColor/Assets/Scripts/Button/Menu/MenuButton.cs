@@ -23,13 +23,42 @@ public class MenuButton : ButtonEventHandler {
 				{
 					EventManager.OnPlayButtonPress();
 				}
+
+				if (EventManager.OnSwipeRight != null)
+				{
+					EventManager.OnSwipeRight();
+				}
 				break;
 			}
 
 			case ButtonID.Control:
 			{
-				if (EventManager.OnControlButtonPress != null) {
+				if (EventManager.OnControlButtonPress != null)
+				{
 					EventManager.OnControlButtonPress();
+				}
+
+				if (EventManager.OnSwipeLeft != null)
+				{
+					EventManager.OnSwipeLeft();
+				}
+				break;
+			}
+
+			case ButtonID.Setting:
+			{
+				if (EventManager.OnSwipeDown != null)
+				{
+					EventManager.OnSwipeDown();
+				}
+				break;
+			}
+
+			case ButtonID.Credit:
+			{
+				if (EventManager.OnSwipeUp != null)
+				{
+					EventManager.OnSwipeUp();
 				}
 				break;
 			}

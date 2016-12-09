@@ -72,6 +72,7 @@ public class ButtonEventHandler : MonoBehaviour, IPointerClickHandler {
 
 public enum ButtonID
 {
+
 	Play,
 	Setting,
 	Credit,
@@ -82,4 +83,5 @@ public enum ButtonID
 	Retry,
 	DIA_Positive,
 	DIA_Negative,
+	None,
 }

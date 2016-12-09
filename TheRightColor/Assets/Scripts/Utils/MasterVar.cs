@@ -22,4 +22,20 @@ public class MasterVar
 	public static float ActivateTimerAlert = .25f;
 
 
+	public static int COST_SUB_TRIANGLE = 100;
+	public static int COST_SUB_CIRCLE = 200;
+	public static int COST_SUB_SQUARE = 300;
+
+	public static int COST_SUB_BAR = 500;
+
+	public static int COST_SUB_DEFAULT = 500;
+
+	public static int COST_SUB_BLOOM = 1000;
+	public static int COST_SUB_FISHEYE = 1500;
+
+
+
+
+
+
 }

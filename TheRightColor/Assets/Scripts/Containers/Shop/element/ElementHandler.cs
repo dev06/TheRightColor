@@ -30,6 +30,13 @@ public class ElementHandler : ShopButton {
 	private Vector2 				_closeTargetVector;
 
 	float elementHeight = 150f;
+
+
+	void OnDisable()
+	{
+		rectTransform.anchoredPosition = Vector2.zero;
+	}
+
 	void Start ()
 	{
 		subElementPrefab = (GameObject)Resources.Load("Prefabs/UI/Shop/Content/subelement");
@@ -64,6 +71,7 @@ public class ElementHandler : ShopButton {
 		}
 
 		this.subcategory = constructor.subcategory;
+		this.buttonID = constructor.id;
 
 
 		for (int i = 0; i <  constructor.subelements; i++)
@@ -72,7 +80,10 @@ public class ElementHandler : ShopButton {
 
 			RectTransform rt = subelement.GetComponent<RectTransform>();
 			subelement.transform.SetParent(children.transform);
-			Subelement s = new Subelement(subcategory.type[i], subcategory.GetButtonID(subcategory.type[i]));
+			Subelement s = new Subelement(subcategory.type[i],
+			                              subcategory.GetButtonID(subcategory.type[i]),
+			                              subcategory.GetButtonToggle(subcategory.type[i]),
+			                              subcategory.GetButtonCost(subcategory.type[i]));
 			rt.localScale = new Vector3(1, 1, 1);
 			rt.localPosition = new Vector3(0, 0, 0);
 			rt.anchorMin = new Vector2(0, 0);
@@ -103,6 +114,7 @@ public class ElementHandler : ShopButton {
 
 		if (GameManager.Instance.state == State.Control)
 		{
+
 			if (previousElement != null)
 			{
 				if (previousElement.isOpen)
@@ -127,12 +139,12 @@ public class ElementHandler : ShopButton {
 				{
 					_closeTargetVector.x = 0;
 					_closeTargetVector.y = -previousElement.height;
-
 					rectTransform.anchoredPosition = Vector2.Lerp(rectTransform.anchoredPosition,
 					                                 previousElement.rectTransform.anchoredPosition +
 					                                 _closeTargetVector, .2f);
 				}
 			}
+
 		}
 
 	}

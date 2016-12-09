@@ -10,7 +10,7 @@ public class ContentHandler : MonoBehaviour {
 
 	public ContentCreator contentCreator;
 
-	public List<ElementHandler> elements;
+	public  List<ElementHandler> elements;
 
 	public ContentCreator.ContentType contentType;
 
@@ -32,7 +32,11 @@ public class ContentHandler : MonoBehaviour {
 		}
 
 
+
+
+
 		StartCoroutine("CalcuateOffsetValue");
+
 
 	}
 
@@ -42,6 +46,7 @@ public class ContentHandler : MonoBehaviour {
 	// set the offet of next elemt to sublement childcount
 	IEnumerator  CalcuateOffsetValue()
 	{
+
 		yield return new WaitForSeconds(.4f);
 		for (int i = 0; i < elements.Count; i++)
 		{

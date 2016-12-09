@@ -17,7 +17,8 @@ public class BoardController : MonoBehaviour {
 	private RectTransform _interactiveTileContainer;
 	private Vector3 _interactiveTileContainer_pos;
 	private Image _boardImage;
-
+	private Vector2 _boardOffsetMin = new Vector2(0f, 150f);
+	private Vector2 _boardOffsetMax = Vector2.zero;
 
 	void OnEnable()
 	{
@@ -43,17 +44,18 @@ public class BoardController : MonoBehaviour {
 		GenerateInteractiveTileColor();
 		_boardImage = GetComponent<Image>();
 		_flashAnimator = transform.FindChild("FlashImage").GetComponent<Animator>();
+		_interactiveTileContainer = GameObject.FindWithTag("Container/InteractiveContainer").GetComponent<RectTransform>();
 		// /CalcualteBoardBounds();
 	}
 
 
 	void Update ()
 	{
-		// if (_interactiveTileContainer != null)
-		// {
-		// 	_interactiveTileContainer_pos.x = 0;
-		// 	_interactiveTileContainer.localPosition = _interactiveTileContainer_pos;
-		// }
+		if (_interactiveTileContainer != null)
+		{
+			_interactiveTileContainer.offsetMin = _boardOffsetMin;
+			_interactiveTileContainer.offsetMax = _boardOffsetMax;
+		}
 
 		ChangeBackGround();
 	}

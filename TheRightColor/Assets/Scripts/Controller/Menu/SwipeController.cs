@@ -75,6 +75,7 @@ public class SwipeController : MonoBehaviour {
 							if (EventManager.OnSwipeRight != null)
 							{
 								EventManager.OnSwipeRight();
+
 							}
 						}
 					}

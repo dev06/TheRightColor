@@ -37,8 +37,7 @@ public class DialogHandler : MonoBehaviour {
 		_overlay = GetComponent<Image>();
 		_containerOverlay = transform.FindChild("container").GetComponent<Image>();
 		_containerGroup = transform.FindChild("container").GetComponent<CanvasGroup>();
-		_positiveButton = transform.FindChild("container").FindChild("positive").GetComponent<Text>();
-		_negativeButton = transform.FindChild("container").FindChild("negative").GetComponent<Text>();
+
 		// _positiveButton.raycastTarget = false;
 		// _negativeButton.raycastTarget = false;
 
@@ -77,77 +76,76 @@ public class DialogHandler : MonoBehaviour {
 	}
 
 
-	private IEnumerator Open(float _duration)
-	{
+	// private IEnumerator Open(float _duration)
+	// {
 
-		while (Mathf.Abs(1.0f - _overlay.color.a) > .1f)
-		{
-			_overlayAlpha += Time.deltaTime * _duration;
-			_overlayColor.r = _overlayTargetColor.r;
-			_overlayColor.g = _overlayTargetColor.g;
-			_overlayColor.b = _overlayTargetColor.b;
-			_overlayColor.a = _overlayAlpha;
-
-
-			_containerColor.r = _containerTargetColor.r;
-			_containerColor.g = _containerTargetColor.g;
-			_containerColor.b = _containerTargetColor.b;
-
-			_containerColor.a = _overlayAlpha;
-
-			_overlay.color = _overlayColor;
-			_containerOverlay.color = _containerColor;
-			_containerGroup.alpha = _overlayAlpha;
-			yield return new WaitForSeconds(Time.deltaTime);
-		}
+	// 	while (Mathf.Abs(1.0f - _overlay.color.a) > .1f)
+	// 	{
+	// 		_overlayAlpha += Time.deltaTime * _duration;
+	// 		_overlayColor.r = _overlayTargetColor.r;
+	// 		_overlayColor.g = _overlayTargetColor.g;
+	// 		_overlayColor.b = _overlayTargetColor.b;
+	// 		_overlayColor.a = _overlayAlpha;
 
 
-		_overlayAlpha = _overlayTargetColor.a;
+	// 		_containerColor.r = _containerTargetColor.r;
+	// 		_containerColor.g = _containerTargetColor.g;
+	// 		_containerColor.b = _containerTargetColor.b;
 
-		_overlay.color = _overlayTargetColor;
-		_containerOverlay.color = _containerColor;
-		_containerGroup.alpha = _overlayAlpha;
+	// 		_containerColor.a = _overlayAlpha;
 
-	}
-
-	private IEnumerator Close(float _duration)
-	{
-
-		while (Mathf.Abs(0.0f - _overlay.color.a) > .1f)
-		{
-			_overlayAlpha -= Time.deltaTime * _duration;
-
-			_overlayColor.r = 0.0f;
-			_overlayColor.g = 0.0f;
-			_overlayColor.b = 0.0f;
-
-			_overlayColor.a = _overlayAlpha;
-
-			_containerColor.a = _overlayAlpha;
-
-			_overlay.color = _overlayColor;
-			_containerOverlay.color = _containerColor;
-			_containerGroup.alpha = _overlayAlpha;
-			yield return new WaitForSeconds(Time.deltaTime);
-		}
+	// 		_overlay.color = _overlayColor;
+	// 		_containerOverlay.color = _containerColor;
+	// 		_containerGroup.alpha = _overlayAlpha;
+	// 		yield return new WaitForSeconds(Time.deltaTime);
+	// 	}
 
 
-		_overlayAlpha = 0.0f;
+	// 	_overlayAlpha = _overlayTargetColor.a;
 
-		_overlayColor.r = 0.0f;
-		_overlayColor.g = 0.0f;
-		_overlayColor.b = 0.0f;
+	// 	_overlay.color = _overlayTargetColor;
+	// 	_containerOverlay.color = _containerColor;
+	// 	_containerGroup.alpha = _overlayAlpha;
 
-		_overlay.color = _overlayColor;
+	// }
 
-		_containerOverlay.color = _containerColor;
-		_containerGroup.alpha = _overlayAlpha;
-	}
+	// private IEnumerator Close(float _duration)
+	// {
+
+	// 	while (Mathf.Abs(0.0f - _overlay.color.a) > .1f)
+	// 	{
+	// 		_overlayAlpha -= Time.deltaTime * _duration;
+
+	// 		_overlayColor.r = 0.0f;
+	// 		_overlayColor.g = 0.0f;
+	// 		_overlayColor.b = 0.0f;
+
+	// 		_overlayColor.a = _overlayAlpha;
+
+	// 		_containerColor.a = _overlayAlpha;
+
+	// 		_overlay.color = _overlayColor;
+	// 		_containerOverlay.color = _containerColor;
+	// 		_containerGroup.alpha = _overlayAlpha;
+	// 		yield return new WaitForSeconds(Time.deltaTime);
+	// 	}
+
+
+	// 	_overlayAlpha = 0.0f;
+
+	// 	_overlayColor.r = 0.0f;
+	// 	_overlayColor.g = 0.0f;
+	// 	_overlayColor.b = 0.0f;
+
+	// 	_overlay.color = _overlayColor;
+
+	// 	_containerOverlay.color = _containerColor;
+	// 	_containerGroup.alpha = _overlayAlpha;
+	// }
 
 	void OnSubelementPress(ShopButton.Shop_ButtonID id)
 	{
 		StopAllCoroutines();
-		//StartCoroutine("Open", 4.0f);
 		SetOpen();
 	}
 
@@ -155,13 +153,11 @@ public class DialogHandler : MonoBehaviour {
 	{
 		StopAllCoroutines();
 		SetClose();
-		//StartCoroutine("Close", 4.0f);
 	}
 	void OnDialogNegative()
 	{
 		StopAllCoroutines();
 		SetClose();
-		//StartCoroutine("Close", 4.0f);
 	}
 
 }

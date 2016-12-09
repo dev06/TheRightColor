@@ -27,7 +27,7 @@ public class Tab_GUI : MonoBehaviour {
 			}
 		}
 
-		Setup();
+		//Setup();
 	}
 
 	/// <summary>

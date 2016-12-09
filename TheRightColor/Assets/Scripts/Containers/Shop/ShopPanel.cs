@@ -13,24 +13,24 @@ public class ShopPanel : MonoBehaviour {
 
 	public PanelID panelID;
 
-	void Start () {
+	private bool activate;
 
+	void Start () {
+		StartCoroutine("StartActivate");
 	}
+
+	IEnumerator StartActivate()
+	{
+		yield return new WaitForSeconds(.5f);
+		activate = true;
+	}
+
 
 	void Update ()
 	{
-		transform.GetChild(0).gameObject.SetActive(toggle.isOn);
-	}
-
-	void ActivatePanel(PanelID panelID)
-	{
-		switch (panelID)
-		{
-			case PanelID.Aesthetics:
-			{
-
-				break;
-			}
+		if (activate) {
+			transform.GetChild(0).gameObject.SetActive(toggle.isOn);
 		}
 	}
+
 }

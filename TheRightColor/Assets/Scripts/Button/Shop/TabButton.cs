@@ -14,13 +14,17 @@ public class TabButton : ShopButton {
 		_toggle =  GetComponent<Toggle>();
 		_activeObjImg = _activeObj.GetComponent<Image>();
 		_rt = GetComponent<RectTransform>();
-		Setup();
+		//StartCoroutine("Setup");
 		StartCoroutine("OpenBox");
 	}
 
-	void Setup()
+	IEnumerator Setup()
 	{
-
+		yield return new WaitForSeconds(.2f);
+		if (buttonID == ShopButton.Shop_ButtonID.Features)
+		{
+			_toggle.isOn = false;
+		}
 	}
 
 	IEnumerator OpenBox()

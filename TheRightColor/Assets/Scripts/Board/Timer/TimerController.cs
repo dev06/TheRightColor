@@ -47,13 +47,13 @@ public class TimerController : MonoBehaviour {
 		{
 
 
-			if (_canDepleteTime)
-			{
-				DepleteTime(1.0f);
-			}
 
 			if (!Application.isEditor)
 			{
+				if (_canDepleteTime)
+				{
+					DepleteTime(1.0f);
+				}
 
 			}
 
