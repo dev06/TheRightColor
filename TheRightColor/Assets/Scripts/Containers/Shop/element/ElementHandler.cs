@@ -11,8 +11,10 @@ public class ElementHandler : ShopButton {
 	public ContentCreator.SUBCAT    subcategory;
 	public RectTransform 			rectTransform;
 	public GameObject 				subElementPrefab;
-	public GameObject 				children;
+	public GameObject 				subcontent;
+	public List<GameObject>         children;
 	public bool 					isOpen;
+	public bool 					childToggle;
 	public int 						childIndex;
 	public int 						subelementCount;
 	public int 						prevSubelementCount;
@@ -21,6 +23,8 @@ public class ElementHandler : ShopButton {
 	public float 					childrenWidth;
 	public float 					childrenHeight;
 
+
+	private float 					_elementHeight = 150f;
 	private float 					_paddingTop = 1.2f;
 	private float 					_paddingBetweenSubElements = 1.2f;
 	private Text 					_elementName;
@@ -29,7 +33,7 @@ public class ElementHandler : ShopButton {
 	private Vector3 				_openTargetVector;
 	private Vector2 				_closeTargetVector;
 
-	float elementHeight = 150f;
+
 
 
 	void OnDisable()
@@ -41,24 +45,16 @@ public class ElementHandler : ShopButton {
 	{
 		subElementPrefab = (GameObject)Resources.Load("Prefabs/UI/Shop/Content/subelement");
 		subelements = new List<SubelementHandler>();
-		children = transform.FindChild("children").FindChild("subcontent").gameObject;
-
-
-
-
+		subcontent = transform.FindChild("children").FindChild("subcontent").gameObject;
+		children = new List<GameObject>();
 		childIndex = transform.GetSiblingIndex();
 		_elementName = transform.FindChild("name").GetComponent<Text>();
 		_toggle = GetComponent<Toggle>();
 		rectTransform = GetComponent<RectTransform>();
-		rectTransform.sizeDelta = new Vector2(rectTransform.sizeDelta.x, elementHeight);
+		rectTransform.sizeDelta = new Vector2(rectTransform.sizeDelta.x, _elementHeight);
 		width = rectTransform.rect.width;
 		height = rectTransform.rect.height;
 		Initialize();
-
-
-
-
-
 	}
 
 
@@ -79,7 +75,7 @@ public class ElementHandler : ShopButton {
 			GameObject subelement = (GameObject)Instantiate(subElementPrefab);
 
 			RectTransform rt = subelement.GetComponent<RectTransform>();
-			subelement.transform.SetParent(children.transform);
+			subelement.transform.SetParent(subcontent.transform);
 			Subelement s = new Subelement(subcategory.type[i],
 			                              subcategory.GetButtonID(subcategory.type[i]),
 			                              subcategory.GetButtonToggle(subcategory.type[i]),
@@ -88,10 +84,11 @@ public class ElementHandler : ShopButton {
 			rt.localPosition = new Vector3(0, 0, 0);
 			rt.anchorMin = new Vector2(0, 0);
 			rt.anchorMax = new Vector2(1, 1);
-			rt.offsetMax = new Vector2(-elementHeight, 0);
-			rt.offsetMin = new Vector2(elementHeight, 0);
+			rt.offsetMax = new Vector2(-_elementHeight, 0);
+			rt.offsetMin = new Vector2(_elementHeight, 0);
 			childrenHeight = rt.rect.height;
-			rt.GetComponent<SubelementHandler>().constructor = s;
+			rt.GetComponent<SubelementHandler>()._constructor = s;
+			rt.GetComponent<SubelementHandler>().element = this;
 			rt.GetComponent<SubelementHandler>().SetTargetPosition(new Vector3(0,
 			        (-i * childrenHeight * _paddingBetweenSubElements) - (childrenHeight * (_paddingTop - 1.0f)), 0));
 
@@ -99,9 +96,29 @@ public class ElementHandler : ShopButton {
 
 		}
 
-		children.GetComponent<RectTransform>().offsetMin = new Vector2(0, children.GetComponent<RectTransform>().offsetMin.y);
+		subcontent.GetComponent<RectTransform>().offsetMin = new Vector2(0, subcontent.GetComponent<RectTransform>().offsetMin.y);
 		_openTargetVector = Vector3.zero;
 		_closeTargetVector = Vector2.zero;
+
+
+		for (int i = 0 ; i < subcontent.transform.childCount; i++)
+		{
+			children.Add(subcontent.transform.GetChild(i).gameObject);
+		}
+
+
+
+		InitChildToggle(buttonID);
+	}
+
+
+	void InitChildToggle(ShopButton.Shop_ButtonID id)
+	{
+		switch (id)
+		{
+			case ShopButton.Shop_ButtonID.ELE_Particles: childToggle = true; break;
+
+		}
 	}
 
 	// Update is called once per frame
@@ -110,7 +127,7 @@ public class ElementHandler : ShopButton {
 	{
 
 		isOpen = _toggle.isOn;
-		children.SetActive(_toggle.isOn);
+		subcontent.SetActive(_toggle.isOn);
 
 		if (GameManager.Instance.state == State.Control)
 		{
@@ -120,14 +137,14 @@ public class ElementHandler : ShopButton {
 				if (previousElement.isOpen)
 				{
 					// this is the last subelement position in the previouselement
-					RectTransform lastSublement = previousElement.children.transform.
-					                              GetChild(previousElement.children.transform.childCount - 1).
+					RectTransform lastSublement = previousElement.subcontent.transform.
+					                              GetChild(previousElement.subcontent.transform.childCount - 1).
 					                              GetComponent<RectTransform>();
 
 					_openTargetVector.x = 0;
 
-					_openTargetVector.y = (lastSublement.anchoredPosition.y - (childIndex * previousElement.height) - elementHeight)
-					                      - (_paddingTop - 1.0f) * elementHeight;
+					_openTargetVector.y = (lastSublement.anchoredPosition.y - (childIndex * previousElement.height) - _elementHeight)
+					                      - (_paddingTop - 1.0f) * _elementHeight;
 
 					_openTargetVector.z = 0;
 
@@ -151,7 +168,6 @@ public class ElementHandler : ShopButton {
 
 
 
-
 	void SetText(string text)
 	{
 		_elementName.text = text;
@@ -159,12 +175,13 @@ public class ElementHandler : ShopButton {
 
 	public GameObject GetChild(int index)
 	{
-		return children.transform.GetChild(index).gameObject;
+		return subcontent.transform.GetChild(index).gameObject;
 	}
 
 	public override void OnPointerClick(PointerEventData data)
 	{
 		base.OnPointerClick(data);
+
 	}
 }
 

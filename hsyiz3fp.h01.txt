@@ -1,0 +1,211 @@
+﻿-m
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch master
+# Your branch is up-to-date with 'origin/master'.
+#
+# Changes to be committed:
+#	modified:   TheRightColor/Assets/Animation/New folder/flash_anim.anim
+#	new file:   TheRightColor/Assets/Resources/Material/Particle/circle.mat
+#	new file:   TheRightColor/Assets/Resources/Material/Particle/circle.mat.meta
+#	modified:   TheRightColor/Assets/Resources/Prefabs/Tile/InteractiveTile.prefab
+#	modified:   TheRightColor/Assets/Resources/Prefabs/UI/Shop/Content/element.prefab
+#	modified:   TheRightColor/Assets/Resources/Prefabs/UI/Shop/Content/subelement.prefab
+#	modified:   TheRightColor/Assets/Resources/Prefabs/UI/bar.prefab
+#	new file:   TheRightColor/Assets/Resources/Textures/Partilce/snowflake.png
+#	new file:   TheRightColor/Assets/Resources/Textures/Partilce/snowflake.png.meta
+#	new file:   TheRightColor/Assets/Resources/Textures/UI/checkmark.png
+#	new file:   TheRightColor/Assets/Resources/Textures/UI/checkmark.png.meta
+#	modified:   TheRightColor/Assets/Scene/Game.unity
+#	modified:   TheRightColor/Assets/Scripts/Board/Timer/TimerController.cs
+#	new file:   TheRightColor/Assets/Scripts/Button/Misc/Notification_Dialog_Confirm.cs
+#	new file:   TheRightColor/Assets/Scripts/Button/Misc/Notification_Dialog_Confirm.cs.meta
+#	modified:   TheRightColor/Assets/Scripts/Button/Shop/ShopButton.cs
+#	modified:   TheRightColor/Assets/Scripts/Containers/Shop/ContentCreator.cs
+#	new file:   TheRightColor/Assets/Scripts/Containers/Shop/SubcontentHandler.cs
+#	new file:   TheRightColor/Assets/Scripts/Containers/Shop/SubcontentHandler.cs.meta
+#	modified:   TheRightColor/Assets/Scripts/Containers/Shop/element/ElementHandler.cs
+#	modified:   TheRightColor/Assets/Scripts/Containers/Shop/element/SubelementHandler.cs
+#	deleted:    TheRightColor/Assets/Scripts/Containers/Shop/element/subelement.meta
+#	modified:   TheRightColor/Assets/Scripts/Controller/Audio/SpectrumController.cs
+#	modified:   TheRightColor/Assets/Scripts/Controller/Game/CameraController.cs
+#	modified:   TheRightColor/Assets/Scripts/Controller/Menu/SwipeController.cs
+#	modified:   TheRightColor/Assets/Scripts/Controller/Pause/PauseController.cs
+#	modified:   TheRightColor/Assets/Scripts/Controller/Shop/ShopController.cs
+#	modified:   TheRightColor/Assets/Scripts/Events/EventManager.cs
+#	modified:   TheRightColor/Assets/Scripts/Handler/Dialog/DialogHandler.cs
+#	modified:   TheRightColor/Assets/Scripts/Managers/GameManager.cs
+#	modified:   TheRightColor/Assets/Scripts/Tile/InteractiveTile.cs
+#	modified:   TheRightColor/Assets/Scripts/UI/Theme/UITheme.cs
+#	modified:   TheRightColor/Assets/Scripts/UI/UIEffects/InteractiveTileOverlay.cs
+#	renamed:    TheRightColor/Assets/Animation/Menu/Button/New folder.meta -> TheRightColor/Assets/Scripts/UI/Utils.meta
+#	new file:   TheRightColor/Assets/Scripts/UI/Utils/Notification_Dialog.cs
+#	new file:   TheRightColor/Assets/Scripts/UI/Utils/Notification_Dialog.cs.meta
+#	modified:   TheRightColor/Assets/Scripts/Utils/MasterVar.cs
+#	new file:   TheRightColor/Documentation.txt
+#	modified:   TheRightColor/Library/CurrentLayout.dwlt
+#	modified:   TheRightColor/Library/CurrentMaximizeLayout.dwlt
+#	modified:   TheRightColor/Library/EditorUserBuildSettings.asset
+#	modified:   TheRightColor/Library/InspectorExpandedItems.asset
+#	modified:   TheRightColor/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll
+#	modified:   TheRightColor/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll.mdb
+#	modified:   TheRightColor/Library/ScriptAssemblies/Assembly-CSharp-firstpass.dll
+#	modified:   TheRightColor/Library/ScriptAssemblies/Assembly-CSharp-firstpass.dll.mdb
+#	modified:   TheRightColor/Library/ScriptAssemblies/Assembly-CSharp.dll
+#	modified:   TheRightColor/Library/ScriptAssemblies/Assembly-CSharp.dll.mdb
+#	new file:   TheRightColor/Library/ShaderCache/0/02a3660d5a6c82edbe9446ffa3fb0823.bin
+#	new file:   TheRightColor/Library/ShaderCache/0/07c930e8a8029d1c452a30358c7a7384.bin
+#	new file:   TheRightColor/Library/ShaderCache/1/115199a44abedfaba596830f62afbaab.bin
+#	new file:   TheRightColor/Library/ShaderCache/2/250f873dcb5e8052a6029cb31caa9df0.bin
+#	new file:   TheRightColor/Library/ShaderCache/2/26171d79b1c7a3814a37deb21db111eb.bin
+#	new file:   TheRightColor/Library/ShaderCache/8/89cdbc63b3b64d395ebb002d5a89d5c4.bin
+#	modified:   TheRightColor/Library/assetDatabase3
+#	modified:   TheRightColor/Library/expandedItems
+#	modified:   TheRightColor/Library/metadata/00/00000000000000002000000000000000
+#	modified:   TheRightColor/Library/metadata/00/00000000000000003000000000000000
+#	modified:   TheRightColor/Library/metadata/00/00000000000000004000000000000000
+#	modified:   TheRightColor/Library/metadata/00/00000000000000004100000000000000
+#	modified:   TheRightColor/Library/metadata/00/00000000000000005000000000000000
+#	modified:   TheRightColor/Library/metadata/00/00000000000000005100000000000000
+#	modified:   TheRightColor/Library/metadata/00/00000000000000006000000000000000
+#	modified:   TheRightColor/Library/metadata/00/00000000000000006100000000000000
+#	modified:   TheRightColor/Library/metadata/00/00000000000000007000000000000000
+#	modified:   TheRightColor/Library/metadata/00/00000000000000007100000000000000
+#	modified:   TheRightColor/Library/metadata/00/00000000000000008000000000000000
+#	modified:   TheRightColor/Library/metadata/00/00000000000000008100000000000000
+#	modified:   TheRightColor/Library/metadata/00/00000000000000009000000000000000
+#	modified:   TheRightColor/Library/metadata/00/0000000000000000a000000000000000
+#	modified:   TheRightColor/Library/metadata/00/0000000000000000a100000000000000
+#	modified:   TheRightColor/Library/metadata/00/0000000000000000b000000000000000
+#	modified:   TheRightColor/Library/metadata/00/0000000000000000c000000000000000
+#	modified:   TheRightColor/Library/metadata/00/003377fc2620a44939dadde6fe3f8190
+#	modified:   TheRightColor/Library/metadata/01/017ca72b9e8a749058d13ebd527e98fa
+#	modified:   TheRightColor/Library/metadata/01/01a668cc78047034a8a0c5ca2d24c6f7
+#	modified:   TheRightColor/Library/metadata/01/01ccd565ad7b85d4f9817d13469211a4
+#	modified:   TheRightColor/Library/metadata/02/022cddd50fd8d024e9f6759bb2a7b90e
+#	renamed:    TheRightColor/Library/metadata/1b/1b46fe369a8475b498666201682bfe99 -> TheRightColor/Library/metadata/05/0511472c4ec5d2742aa9ca42cb30713a
+#	new file:   TheRightColor/Library/metadata/05/0511472c4ec5d2742aa9ca42cb30713a.info
+#	modified:   TheRightColor/Library/metadata/05/054a31a99d11e49d110086ba44295342
+#	modified:   TheRightColor/Library/metadata/0a/0a4b0bce1e250a14bb534d70bce205fa
+#	modified:   TheRightColor/Library/metadata/0a/0aeaa4cb29f5d4e9c8455f04c8575c8c
+#	modified:   TheRightColor/Library/metadata/0d/0d1644bdf064147baa97f235fc5b4903
+#	modified:   TheRightColor/Library/metadata/0e/0e447868506ba49f0a73235b8a8b647a
+#	new file:   TheRightColor/Library/metadata/13/1323bc9b5b56e2b48a85db99e08fdd90
+#	new file:   TheRightColor/Library/metadata/13/1323bc9b5b56e2b48a85db99e08fdd90.info
+#	modified:   TheRightColor/Library/metadata/14/14768d3865b1342e3a861fbe19ba2db2
+#	modified:   TheRightColor/Library/metadata/18/186c4c0d31e314f049595dcbaf4ca129
+#	modified:   TheRightColor/Library/metadata/18/18d06e6d7878c794da19ba67efc25e2b
+#	modified:   TheRightColor/Library/metadata/20/2013fb85f70518e4f908be1ad1500021
+#	modified:   TheRightColor/Library/metadata/21/21fe24dbc8ed82a46b2cae5abf1deb57
+#	modified:   TheRightColor/Library/metadata/25/257bc83cbeb544540bd0e558aa9b1383
+#	modified:   TheRightColor/Library/metadata/27/273404942eede4ea1883ca1fb2942507
+#	modified:   TheRightColor/Library/metadata/2b/2b4f29398d9484ccfa9fd220449f5eee
+#	modified:   TheRightColor/Library/metadata/34/346a22f7951fb23419c13cd78ad6f4dd
+#	modified:   TheRightColor/Library/metadata/39/3954501323f24464f9e4418c78d8e8ce
+#	modified:   TheRightColor/Library/metadata/3e/3e6e75527ab664343ae28736f758ed34
+#	modified:   TheRightColor/Library/metadata/3f/3f6aaee2e48e59941bea1b80fe5b4eb4
+#	modified:   TheRightColor/Library/metadata/43/438ddd58d82c84d9eb1fdc56111702e1
+#	modified:   TheRightColor/Library/metadata/43/43ca18288c424f645aaa1e9e07f04c50
+#	modified:   TheRightColor/Library/metadata/45/459fe69d2f6d74ddb92f04dbf45a866b
+#	modified:   TheRightColor/Library/metadata/48/48dca5b99d113b8d11006bab44295342
+#	modified:   TheRightColor/Library/metadata/4c/4c19d8ab9584e1b43a3308d5f06fc08f
+#	modified:   TheRightColor/Library/metadata/4d/4d97ba9aaa189c541a94d0d3fcd502eb
+#	modified:   TheRightColor/Library/metadata/53/5345a46b96b9290438a543f28c5b6002
+#	modified:   TheRightColor/Library/metadata/53/53b3960ee3d3d4a5caa8d5473d120187
+#	modified:   TheRightColor/Library/metadata/56/562f620336e024ac99992ff05725a89a
+#	modified:   TheRightColor/Library/metadata/57/5740af18d48a8fb4684d406f56481e0f
+#	modified:   TheRightColor/Library/metadata/57/57b33a14b6d5347c5a85c36f6cb3b280
+#	modified:   TheRightColor/Library/metadata/57/57cdacf9b217546aaa18edf39a6151c0
+#	modified:   TheRightColor/Library/metadata/57/57e6deea7c2924e22a5138e2b70bb4dc
+#	modified:   TheRightColor/Library/metadata/5d/5d7f4c401ae8946bcb0d6ff68a9e7466
+#	modified:   TheRightColor/Library/metadata/62/627943dc7a9a74286b70a4f694a0acd5
+#	modified:   TheRightColor/Library/metadata/62/62bcade1028c24ca1a39760ed84b9487
+#	modified:   TheRightColor/Library/metadata/64/641b781cad112c75d0008dfa8d76c639
+#	modified:   TheRightColor/Library/metadata/67/67f8781cad112c75d0008dfa8d76c639
+#	modified:   TheRightColor/Library/metadata/6a/6a5cf82227986af45be9b1669c7f63bd
+#	modified:   TheRightColor/Library/metadata/6f/6f1418cffd12146f2a83be795f6fa5a7
+#	modified:   TheRightColor/Library/metadata/70/708b781cad112c75d0008dfa8d76c639
+#	modified:   TheRightColor/Library/metadata/70/70d8568987ac0499f952b54c7c13e265
+#	modified:   TheRightColor/Library/metadata/76/7699c5fbfa27745a1abe111ab7bf9785
+#	modified:   TheRightColor/Library/metadata/78/7856cbff0a0ca45c787d5431eb805bb0
+#	modified:   TheRightColor/Library/metadata/7a/7a8b8b6ac0ac2794eb8783b38cec9d33
+#	modified:   TheRightColor/Library/metadata/7c/7cd9bd3ca3349e743974a485dd838434
+#	modified:   TheRightColor/Library/metadata/80/80a932b436906814c872b413355db971
+#	modified:   TheRightColor/Library/metadata/81/8158064f5716e1d429e0f9a53d77406c
+#	modified:   TheRightColor/Library/metadata/82/820b0a7943b9cf942830fd233200c3c2
+#	modified:   TheRightColor/Library/metadata/82/825ec5ae69f81bf41ad3bf86ea1bcdf8
+#	modified:   TheRightColor/Library/metadata/84/844b2eea131dfb64380d592d1d7d89d8
+#	modified:   TheRightColor/Library/metadata/85/85a88efa8c871af4a9d17c64791b6f4f
+#	modified:   TheRightColor/Library/metadata/87/874ceab4425f64bccb1d14032f4452b1
+#	modified:   TheRightColor/Library/metadata/88/8880bd748efe4eb4f8d31c12f91d8819
+#	modified:   TheRightColor/Library/metadata/89/89cdfcc65bc0307408b10427781cf528
+#	modified:   TheRightColor/Library/metadata/8b/8b30686bb4322ab42ad5eb50a0210b58
+#	modified:   TheRightColor/Library/metadata/8c/8c81db0e527d24acc9bcec04e87781bd
+#	modified:   TheRightColor/Library/metadata/8c/8cff5695afff18240bd467381e73a826
+#	modified:   TheRightColor/Library/metadata/8d/8d5ccc5e4acf18e459f1d2f449a52160
+#	modified:   TheRightColor/Library/metadata/90/906fb75655b84554da251f13d808c8cc
+#	modified:   TheRightColor/Library/metadata/93/930071936e0a419438abcb78d1bbfbb6
+#	modified:   TheRightColor/Library/metadata/95/95616c020c5604dda96cf76afbbc0272
+#	modified:   TheRightColor/Library/metadata/96/963484209d11fd7f110076aa44295342
+#	modified:   TheRightColor/Library/metadata/98/987fb0677d01f43ce8a9dbf12271e668
+#	modified:   TheRightColor/Library/metadata/9a/9ad381ed8492840ab9f165df743e4826
+#	modified:   TheRightColor/Library/metadata/9c/9ce107479d11178d11005b9844295342
+#	modified:   TheRightColor/Library/metadata/a0/a0ba3545af101244791800d213a3054b
+#	modified:   TheRightColor/Library/metadata/a2/a20396d2df08e324d98207f7af623374
+#	modified:   TheRightColor/Library/metadata/a6/a6407b3afe1ef894380178d48d436606
+#	modified:   TheRightColor/Library/metadata/a8/a83777ea994734a4fb97f95b2e806daf
+#	modified:   TheRightColor/Library/metadata/a9/a9df009a214e24a5ebbf271595f8d5b6
+#	modified:   TheRightColor/Library/metadata/ac/ac4f9e508d4d3544dad6dca295d7dd2c
+#	modified:   TheRightColor/Library/metadata/ac/acd613035ff3e455e8abf23fdc8c8c24
+#	modified:   TheRightColor/Library/metadata/b0/b0249d8c935344451aa4de6db76f0688
+#	modified:   TheRightColor/Library/metadata/b2/b238cc13e9896f04eb5e06978d2b393e
+#	modified:   TheRightColor/Library/metadata/b3/b3728d1488b02490cbd196c7941bf1f8
+#	modified:   TheRightColor/Library/metadata/b5/b59984d82af624bd3b0c777f038276f2
+#	modified:   TheRightColor/Library/metadata/b6/b61f0d8d8244b4b28aa66b0c8cb46a8d
+#	modified:   TheRightColor/Library/metadata/b6/b6aa781cad112c75d0008dfa8d76c639
+#	modified:   TheRightColor/Library/metadata/b7/b774c4ad7cc144a4198d80f50c7eab82
+#	new file:   TheRightColor/Library/metadata/ba/ba2d035e36713034eb5111060a35282b
+#	new file:   TheRightColor/Library/metadata/ba/ba2d035e36713034eb5111060a35282b.info
+#	modified:   TheRightColor/Library/metadata/ba/baea30c9e630b4148baa74f3644dc813
+#	modified:   TheRightColor/Library/metadata/bb/bb4af680337344a4abad65a4e8873c50
+#	new file:   TheRightColor/Library/metadata/bb/bb8ca6f1522dfd6498f3b0fc4ae6b7be
+#	new file:   TheRightColor/Library/metadata/bb/bb8ca6f1522dfd6498f3b0fc4ae6b7be.info
+#	modified:   TheRightColor/Library/metadata/bd/bd6b0da00e9af604984731887465638f
+#	modified:   TheRightColor/Library/metadata/be/be6e39cf196f146d5be72fbefb18ed75
+#	modified:   TheRightColor/Library/metadata/be/befbb4b9c320b4b18a08ef7afb93b6c9
+#	modified:   TheRightColor/Library/metadata/bf/bf34d2a25450349699e8ae6456fa7ca9
+#	modified:   TheRightColor/Library/metadata/c0/c0ace1ca4bc0718448acf798c93d52d9
+#	modified:   TheRightColor/Library/metadata/c1/c182fa94a5a0a4c02870641efcd38cd5
+#	new file:   TheRightColor/Library/metadata/c5/c5383e25d03233f46b603fb124a3efec
+#	new file:   TheRightColor/Library/metadata/c5/c5383e25d03233f46b603fb124a3efec.info
+#	modified:   TheRightColor/Library/metadata/c5/c547503fff0e8482ea5793727057041c
+#	modified:   TheRightColor/Library/metadata/ca/cad8f7d40e8262c4983d5a03441b8e4f
+#	renamed:    TheRightColor/Library/metadata/5f/5f7ae8168ce4255479eef4fbdba58bcb -> TheRightColor/Library/metadata/cc/cc2cb4b001724e54fa094d30740a35e2
+#	renamed:    TheRightColor/Library/metadata/5f/5f7ae8168ce4255479eef4fbdba58bcb.info -> TheRightColor/Library/metadata/cc/cc2cb4b001724e54fa094d30740a35e2.info
+#	modified:   TheRightColor/Library/metadata/cd/cd5b323dcc592457790ff18b528f5e67
+#	modified:   TheRightColor/Library/metadata/cd/cdff6ae102cf5f14f807a8763b2ea892
+#	modified:   TheRightColor/Library/metadata/ce/ce0cb2621f6d84e21a87414e471a3cce
+#	modified:   TheRightColor/Library/metadata/d3/d3b1c8c1036784176946f5cfbfb7fe4c
+#	modified:   TheRightColor/Library/metadata/d8/d84268709d11078d11005b9844295342
+#	modified:   TheRightColor/Library/metadata/d8/d8e82664aa8686642a424c88ab10164a
+#	modified:   TheRightColor/Library/metadata/da/da310021e2a4142429d95c537846dc38
+#	modified:   TheRightColor/Library/metadata/da/daf9781cad112c75d0008dfa8d76c639
+#	modified:   TheRightColor/Library/metadata/e0/e0a8346bc13a30d4eb96278f1902c9e2
+#	modified:   TheRightColor/Library/metadata/e1/e1ed5c9d369259c4684e9e2bd3374040
+#	modified:   TheRightColor/Library/metadata/e2/e2baf3cae8edc4daf94c9adc2154be00
+#	modified:   TheRightColor/Library/metadata/e5/e515e0f94cefc4c0db54b45cba621544
+#	modified:   TheRightColor/Library/metadata/e6/e6e9fa4f7c3f7544eabb4c8392ef970a
+#	modified:   TheRightColor/Library/metadata/e9/e97c14fbb5ea04c3a902cc533d7fc5d1
+#	modified:   TheRightColor/Library/metadata/e9/e9ba2083ad114a07d000fbfb8d76c639
+#	modified:   TheRightColor/Library/metadata/ea/ea8b4899ddcfb9741aa79518790254ab
+#	modified:   TheRightColor/Library/metadata/ed/ed24c398a1547be47b24080f2a74045a
+#	modified:   TheRightColor/Library/metadata/f1/f1b13d7a80660504a858ea24cfa418c6
+#	modified:   TheRightColor/Library/metadata/f4/f4901f25d4e1542589348bbb89563d8e
+#	new file:   TheRightColor/Library/metadata/f5/f563b9bd7ccf6124fb74ae62ff5ed56f
+#	renamed:    TheRightColor/Library/metadata/1b/1b46fe369a8475b498666201682bfe99.info -> TheRightColor/Library/metadata/f5/f563b9bd7ccf6124fb74ae62ff5ed56f.info
+#	modified:   TheRightColor/Library/metadata/f5/f58445347fe2e4b8396487ed2bfa02ad
+#	modified:   TheRightColor/Library/metadata/f6/f688f89ed5eb847c5b19c934a0f1e772
+#	modified:   TheRightColor/Library/metadata/f7/f7898d203e9b94c0dbe2bf9dd5cb32c0
+#	modified:   TheRightColor/Library/metadata/f9/f92b4f9fae460054fac3ee39309fd881
+#
+

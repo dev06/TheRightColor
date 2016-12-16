@@ -56,6 +56,7 @@ public class EventManager : MonoBehaviour {
 	public delegate void Dialog();
 	public static Dialog OnDialogPositive;
 	public static Dialog OnDialogNegative;
+	public static Dialog OnDialogConfirm;
 
 
 

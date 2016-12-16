@@ -14,7 +14,7 @@ public class SpectrumController : MonoBehaviour {
 	private float _pitchVel;
 	private float vel;
 	private float _pauseVel;
-	private float[] spectrum = new float[64];
+	private float[] spectrum = new float[128];
 	private Transform _barContainer;
 	private RectTransform _barContainerRT;
 	private List<AnimatedObject> _animatedObject;
@@ -150,6 +150,7 @@ public class SpectrumController : MonoBehaviour {
 		}
 	}
 
+	Vector3 newScaleY = Vector3.zero;
 	// Update is called once per frame
 	void FixedUpdate ()
 	{
@@ -170,9 +171,12 @@ public class SpectrumController : MonoBehaviour {
 			{
 				RectTransform _rectTransform = _barContainer.GetChild(i).GetComponent<RectTransform>();
 				float _scaleY = _rectTransform.localScale.y;
-				_scaleY = Mathf.SmoothDamp(_scaleY, spectrum[i] * 20, ref vel, .2f);
+				_scaleY = Mathf.SmoothDamp(_scaleY, spectrum[i] * ((float)i / (float)_barContainer.childCount) * 40.0f, ref vel, .15f);
 				if (_scaleY < 0) { _scaleY = 0; }
-				_rectTransform.localScale = new Vector3(1, _scaleY, 1);
+				newScaleY.x = 1.0f;
+				newScaleY.y = _scaleY;
+				newScaleY.z = 1.0f;
+				_rectTransform.localScale = newScaleY;
 
 			}
 

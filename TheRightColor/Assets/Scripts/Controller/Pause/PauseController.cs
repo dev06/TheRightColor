@@ -6,6 +6,8 @@ public class PauseController : MonoBehaviour {
 	private Image _background;
 	private float _hue;
 	private Color _hueColor;
+
+
 	void Start ()
 	{
 		_background = transform.FindChild("background").GetComponent<Image>();

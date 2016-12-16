@@ -24,7 +24,7 @@ public class InteractiveTileOverlay : MonoBehaviour {
 
 	void Start ()
 	{
-		transform.localScale = new Vector3(.5f, .5f, .5f);
+		transform.localScale = new Vector3(0f, 0f, 0f);
 		_sprite = transform.parent.transform.GetComponent<Image>().sprite;
 		_overlay = GetComponent<Image>();
 		_overlay.sprite = _sprite;

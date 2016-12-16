@@ -29,6 +29,7 @@ public class ShopButton : MonoBehaviour, IPointerClickHandler {
 		SUB_BK_DEFAULT,
 		SUB_BLOOM,
 		SUB_FISHEYE,
+		SUB_BK_SHADE,
 
 		//FEATURES
 		SUB_MUSIC_FADE,

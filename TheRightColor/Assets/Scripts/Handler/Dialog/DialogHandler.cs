@@ -47,16 +47,13 @@ public class DialogHandler : MonoBehaviour {
 
 	void Update ()
 	{
-		if (Input.GetKeyDown(KeyCode.U))
-		{
-
-		}
+		_containerOverlay.color = Camera.main.backgroundColor;
 	}
 
 	private void SetOpen()
 	{
 		_overlay.color = _overlayTargetColor;
-		_containerOverlay.color = _containerTargetColor;
+		//_containerOverlay.color = _containerTargetColor;
 		_containerGroup.alpha = 1;
 	}
 

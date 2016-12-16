@@ -4,6 +4,7 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour {
 
 	public static GameManager Instance;
+	public bool firstLaunch;
 	public int tileCount;
 	public float score;
 	public float highscore;
@@ -18,10 +19,21 @@ public class GameManager : MonoBehaviour {
 		}
 		state = State.Control;
 
+		if (PlayerPrefs.HasKey("FirstLaunch"))
+		{
+			firstLaunch = false;
+		} else
+		{
+			firstLaunch = true;
+
+			Save.SetBool("FirstLaunch", firstLaunch);
+		}
+
 	}
 
 	void Start()
 	{
+
 	}
 
 

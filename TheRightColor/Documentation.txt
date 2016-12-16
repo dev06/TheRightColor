@@ -1,0 +1,12 @@
+The Right Color Documentation 
+
+Dec.12.2016 -Spec 1
+
+  -transition on link
+X -ui color change for purchase dialog
+  -pages need heading overlay
+  -circle particles enabled/disabled 
+  -music 
+  -bug with tutorial overlay at beginning 
+  -first tap needs to be complete tutorial by not allowing wrong
+  -color scheme for the tiles needs to be changed. 

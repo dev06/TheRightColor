@@ -8,15 +8,16 @@ public class ContentCreator: MonoBehaviour {
 	public class SUBCAT
 	{
 		private const string Triangles = "Triangles";
-		private const string Circles = "Circles";
+		private const string Circles = "Snowflakes";
 		private const string Squares = "Squares";
-		private const string Bar = "Bar";
-		private const string BackgroundDefault = "Default";
+		private const string Bar = "Default Spectrum";
+		private const string BackgroundDefault = "Default Background";
+		private const string BK_SHADE = "Shade";
 		private const string Bloom = "Bloom";
 		private const string Fisheye = "Fisheye";
 
 		private const string Music_AlanWalker_Fade = "Fade by Alan Walker";
-		private const string PauseButton = "Buy a Pause Button";
+		private const string PauseButton = "Ability to pause the game";
 		private const string SaveScore = "Ability to save the score";
 
 
@@ -24,7 +25,7 @@ public class ContentCreator: MonoBehaviour {
 		//AESTHETICS
 		public static string [] PARTICLE = { Triangles, Circles , Squares};
 		public static string [] SPECTRUM = { Bar};
-		public static string [] BACKGROUND = { BackgroundDefault};
+		public static string [] BACKGROUND = { BackgroundDefault, BK_SHADE};
 		public static string [] EFFECTS = {Bloom, Fisheye};
 
 
@@ -53,6 +54,7 @@ public class ContentCreator: MonoBehaviour {
 				case BackgroundDefault: return ShopButton.Shop_ButtonID.SUB_BK_DEFAULT;
 				case Bloom : return ShopButton.Shop_ButtonID.SUB_BLOOM;
 				case Fisheye: return ShopButton.Shop_ButtonID.SUB_FISHEYE;
+				case BK_SHADE: return ShopButton.Shop_ButtonID.SUB_BK_SHADE;
 
 				//FEATURES
 				case Music_AlanWalker_Fade: return ShopButton.Shop_ButtonID.SUB_MUSIC_FADE;
@@ -90,6 +92,8 @@ public class ContentCreator: MonoBehaviour {
 				//==============================================================================================================//
 
 				case BackgroundDefault: return MasterVar.COST_SUB_DEFAULT;
+				case BK_SHADE: return MasterVar.COST_SUB_BK_SHADE;
+
 
 				//==============================================================================================================//
 
@@ -106,6 +110,7 @@ public class ContentCreator: MonoBehaviour {
 			}
 			return -1;
 		}
+
 
 	}
 

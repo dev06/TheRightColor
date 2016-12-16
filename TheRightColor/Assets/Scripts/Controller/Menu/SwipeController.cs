@@ -2,14 +2,39 @@
 using System.Collections;
 using UnityEngine.EventSystems;
 public class SwipeController : MonoBehaviour {
-
+	private bool _initFirstSwipe;
 	private Vector2 _pointerDown;
 	private Vector2 _pointerUp;
 	private float _swipeDelay;
 	private bool _canSwipe;
-	void Start () {
-		_canSwipe = true;
+
+	void OnEnable()
+	{
+		EventManager.OnDialogConfirm += OnDialogConfirm;
 	}
+
+	void OnDisable()
+	{
+		EventManager.OnDialogConfirm -= OnDialogConfirm;
+	}
+
+	void OnDialogConfirm()
+	{
+		_initFirstSwipe = true;
+	}
+
+	void Start ()
+	{
+		_canSwipe = true;
+
+		if (GameManager.Instance.firstLaunch)
+		{
+			_initFirstSwipe = false;
+		} else {
+			_initFirstSwipe = true;
+		}
+	}
+
 
 	// Update is called once per frame
 	void Update () {
@@ -40,70 +65,74 @@ public class SwipeController : MonoBehaviour {
 		}
 
 
+
 	}
 
 
 	private void CalculateSwipe()
 	{
-
-		if (GameManager.Instance.state != State.Game)
+		if (_initFirstSwipe)
 		{
-			float _abs_x = Mathf.Abs(_pointerUp.x - _pointerDown.x);
-			float _abs_y = Mathf.Abs(_pointerUp.y - _pointerDown.y);
 
-			if (_abs_x > _abs_y)
+			if (GameManager.Instance.state != State.Game)
 			{
-				if (_abs_x > MasterVar.SwipeThreshold)
+				float _abs_x = Mathf.Abs(_pointerUp.x - _pointerDown.x);
+				float _abs_y = Mathf.Abs(_pointerUp.y - _pointerDown.y);
+
+				if (_abs_x > _abs_y)
 				{
-					_canSwipe = false;
-					float _difference = -(_pointerDown.x - _pointerUp.x);
-					if (_difference > 0)
+					if (_abs_x > MasterVar.SwipeThreshold)
 					{
-						if (StateManager.Instance.stateArrayIndex_y == 1)
+						_canSwipe = false;
+						float _difference = -(_pointerDown.x - _pointerUp.x);
+						if (_difference > 0)
 						{
-							if (EventManager.OnSwipeLeft != null)
+							if (StateManager.Instance.stateArrayIndex_y == 1)
 							{
-								EventManager.OnSwipeLeft();
+								if (EventManager.OnSwipeLeft != null)
+								{
+									EventManager.OnSwipeLeft();
+								}
 							}
-						}
 
-					} else if (_difference < 0)
-					{
-
-						if (StateManager.Instance.stateArrayIndex_y == 1)
+						} else if (_difference < 0)
 						{
-							if (EventManager.OnSwipeRight != null)
-							{
-								EventManager.OnSwipeRight();
 
+							if (StateManager.Instance.stateArrayIndex_y == 1)
+							{
+								if (EventManager.OnSwipeRight != null)
+								{
+									EventManager.OnSwipeRight();
+
+								}
 							}
 						}
 					}
-				}
-			} else {
-				if (_abs_y > MasterVar.SwipeThreshold)
-				{
-					_canSwipe = false;
-					float _difference = -(_pointerDown.y - _pointerUp.y);
-					if (_difference < 0)
+				} else {
+					if (_abs_y > MasterVar.SwipeThreshold)
 					{
-						if (StateManager.Instance.stateArrayIndex_x == 1)
+						_canSwipe = false;
+						float _difference = -(_pointerDown.y - _pointerUp.y);
+						if (_difference < 0)
 						{
-							if (EventManager.OnSwipeUp != null)
+							if (StateManager.Instance.stateArrayIndex_x == 1)
 							{
-								EventManager.OnSwipeUp();
+								if (EventManager.OnSwipeUp != null)
+								{
+									EventManager.OnSwipeUp();
+								}
 							}
-						}
-					} else if (_difference > 0)
-					{
-						if (StateManager.Instance.stateArrayIndex_x == 1)
+						} else if (_difference > 0)
 						{
-							if (EventManager.OnSwipeDown != null)
+							if (StateManager.Instance.stateArrayIndex_x == 1)
 							{
-								EventManager.OnSwipeDown();
+								if (EventManager.OnSwipeDown != null)
+								{
+									EventManager.OnSwipeDown();
+								}
 							}
-						}
 
+						}
 					}
 				}
 			}

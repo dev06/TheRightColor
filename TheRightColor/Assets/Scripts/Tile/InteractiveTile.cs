@@ -33,15 +33,19 @@ public class InteractiveTile: Tile
 
 	void Update()
 	{
-		if (interactiveTileAnim.IsPlaying("interactive_tile_rotate_anim") == false && interactiveTileAnim.IsPlaying("interactive_tile_rotateright_anim") == false)
+		if (GameManager.Instance.state == State.Game)
 		{
-			_canPlayIncorrectAnim = true;
-		} else {
-			_canPlayIncorrectAnim = false;
+			if (interactiveTileAnim.IsPlaying("interactive_tile_rotate_anim") == false && interactiveTileAnim.IsPlaying("interactive_tile_rotateright_anim") == false)
+			{
+				_canPlayIncorrectAnim = true;
+			} else {
+				_canPlayIncorrectAnim = false;
+			}
+
+
+			_overlay.SetActive((generatorTile.color == tileImage.color) && GameManager.Instance.score <= MasterVar.Tutorial_TileCount);
+
 		}
-
-
-		_overlay.SetActive((generatorTile.color == tileImage.color) && GameManager.Instance.score <= MasterVar.Tutorial_TileCount);
 
 	}
 	public override void SetColor(Color c)
@@ -69,10 +73,12 @@ public class InteractiveTile: Tile
 
 		} else {
 
+
 			if (EventManager.OnIncorrectColor != null)
 			{
 				EventManager.OnIncorrectColor();
 			}
+
 		}
 	}
 

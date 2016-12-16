@@ -46,13 +46,16 @@ public class TimerController : MonoBehaviour {
 		if (GameManager.Instance.state == State.Game)
 		{
 
-
+			if (GameManager.Instance.score > 0)
+			{
+				DepleteTime(1.0f);
+			}
 
 			if (!Application.isEditor)
 			{
 				if (_canDepleteTime)
 				{
-					DepleteTime(1.0f);
+
 				}
 
 			}
@@ -123,7 +126,10 @@ public class TimerController : MonoBehaviour {
 
 	public void OnIncorrectColor()
 	{
-		remainingTime -= MasterVar.Incorrect_Color_Penalty;
+		if (GameManager.Instance.score > 0)
+		{
+			remainingTime -= MasterVar.Incorrect_Color_Penalty;
+		}
 	}
 
 	private void TriggerTimerAlert(bool state)

@@ -1,19 +1,21 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using System.Collections.Generic;
 using UnityEngine.EventSystems;
 public class SubelementHandler : ShopButton {
 
-	private ShopButton.Shop_ButtonID tempID;// used for checking which button is press
-	private GameObject _children;
-	private bool _isParentActive;
-	private Vector2 _anchoredPosition;
-	public Subelement constructor;
-	public Vector2 _targetAnchoredPosition;
-	private Text _name;
-	private Image _activeImage;
-	private Text _costText;
-	private bool cap;
+	private ShopButton.Shop_ButtonID 							_tempID;// used for checking which button is press
+	private GameObject 											_children;
+	private bool 												_isParentActive;
+	private Vector2 											_anchoredPosition;
+	public Subelement 											_constructor;
+	public ElementHandler										element;
+	public Vector2 												_targetAnchoredPosition;
+	private Text 												_name;
+	private Image 												_activeImage;
+	private Text 												_costText;
+	private bool 												_cap;
 
 
 	void OnEnable()
@@ -23,7 +25,7 @@ public class SubelementHandler : ShopButton {
 	void OnDisable()
 	{
 		EventManager.OnDialogPositive -= OnDialogPositive;
-		cap = false;
+		_cap = false;
 		StopAllCoroutines();
 	}
 
@@ -36,27 +38,24 @@ public class SubelementHandler : ShopButton {
 		_costText = transform.FindChild("cost").GetComponent<Text>();
 		_activeImage.enabled = false;
 		Initialize();
-
-		ShopController.Instance.Manage(buttonID, constructor.active);
-
 	}
 
 	private void Initialize()
 	{
-		if (constructor != null)
+		if (_constructor != null)
 		{
-			_name.text = constructor.name;
-			buttonID = constructor.id;
-			gameObject.name = constructor.name;
-			_costText.text = constructor.cost + "";
+			_name.text = _constructor.name;
+			buttonID = _constructor.id;
+			gameObject.name = _constructor.name;
+			_costText.text = _constructor.cost + "";
 
 			try
 			{
-				constructor.SetPurchased(Save.GetBool(buttonID + ""));
-				constructor.SetActive(Save.GetBool(buttonID + "Active"));
+				_constructor.SetPurchased(Save.GetBool(buttonID + ""));
+				_constructor.SetActive(Save.GetBool(buttonID + "Active"));
 
-				_activeImage.enabled = constructor.purchased;
-				_activeImage.sprite = constructor.active ? AppResources.Donut_Close : AppResources.Donut_Open;
+				_activeImage.enabled = _constructor.purchased;
+				_activeImage.sprite = _constructor.active ? AppResources.Donut_Close : AppResources.Donut_Open;
 
 			} catch (System.Exception e)
 			{
@@ -69,14 +68,14 @@ public class SubelementHandler : ShopButton {
 	// Update is called once per frame
 	void Update ()
 	{
-		if (cap == false)
+		if (_cap == false)
 		{
 			if (_children.activeSelf)
 			{
 
 				StartCoroutine("Open");
 
-				cap = true;
+				_cap = true;
 			}
 
 		}
@@ -111,50 +110,94 @@ public class SubelementHandler : ShopButton {
 	{
 		base.OnPointerClick(data);
 
-		if (constructor.purchased == false)
+
+		if (element != null)
+		{
+			if (element.childToggle)
+			{
+				for (int i = 0; i < element.children.Count; i++)
+				{
+					if (element.children[i].GetComponent<SubelementHandler>()._constructor.purchased)
+					{
+						element.children[i].GetComponent<SubelementHandler>().Toggle(false);
+					}
+				}
+			}
+
+		} else {
+			Debug.Log("Element is null");
+		}
+
+
+
+		if (_constructor.purchased == false)
 		{
 			if (EventManager.OnSubelementPress != null)
 			{
 				EventManager.OnSubelementPress(buttonID);
-				tempID = buttonID;
+				_tempID = buttonID;
 			}
 		} else {
 
 			if (_activeImage != null)
 			{
-				if (constructor.canToggle)
+				if (_constructor.canToggle)
 				{
-					constructor.SetActive(!constructor.active);
-					_activeImage.enabled = true;
-					_activeImage.sprite = constructor.active ? AppResources.Donut_Close : AppResources.Donut_Open;
-					_costText.enabled = !_activeImage.enabled;
+					Toggle(!_constructor.active);
+
 				}
 			}
-
-
-			ShopController.Instance.Manage(buttonID, constructor.active);
-
+			//ShopController.Instance.Manage(buttonID, _constructor.active);
 		}
 
 
-		Save.SetBool(buttonID + "", constructor.purchased);
-		Save.SetBool(buttonID + "Active", constructor.active);
+
+
+	}
+
+	public void Toggle(bool b)
+	{
+		_constructor.SetActive(b);
+		_activeImage.enabled = true;
+		_activeImage.sprite = _constructor.active ? AppResources.Donut_Close : AppResources.Donut_Open;
+		_costText.enabled = !_activeImage.enabled;
+		ShopController.Instance.Manage(buttonID, _constructor.active);
+		Save.SetBool(buttonID + "", _constructor.purchased);
+		Save.SetBool(buttonID + "Active", _constructor.active);
 	}
 
 	void OnDialogPositive()
 	{
-		if (tempID == buttonID)
+		if (_tempID == buttonID)
 		{
-			constructor.SetPurchased(true);
-			constructor.SetActive(true);
+			if (element != null)
+			{
+				if (element.childToggle)
+				{
+					for (int i = 0; i < element.children.Count; i++)
+					{
+						if (element.children[i].GetComponent<SubelementHandler>()._constructor.purchased)
+						{
+							element.children[i].GetComponent<SubelementHandler>().Toggle(false);
+						}
+					}
+				}
+
+			} else {
+				Debug.Log("Element is null");
+			}
+
+
+			_constructor.SetPurchased(true);
+			_constructor.SetActive(true);
 			_activeImage.enabled = true;
 			_activeImage.sprite =  AppResources.Donut_Close;
-			Save.SetBool(buttonID + "", constructor.purchased);
-			Save.SetBool(buttonID + "Active", constructor.active);
+			Save.SetBool(buttonID + "", _constructor.purchased);
+			Save.SetBool(buttonID + "Active", _constructor.active);
 			_costText.enabled = !_activeImage.enabled;
-			ShopController.Instance.Manage(tempID, constructor.active);
+			ShopController.Instance.Manage(_tempID, _constructor.active);
 
-			tempID = ShopButton.Shop_ButtonID.None;
+			_tempID = ShopButton.Shop_ButtonID.None;
 		}
 	}
 }
@@ -162,6 +205,7 @@ public class SubelementHandler : ShopButton {
 public class Subelement
 {
 	public ShopButton.Shop_ButtonID id;
+	public Subelement[] siblings;
 	public string name;
 	public int cost;
 	public bool purchased;
@@ -189,6 +233,15 @@ public class Subelement
 		this.name = name;
 		this.canToggle = canToggle;
 		this.cost = cost;
+	}
+
+	public Subelement(string name, ShopButton.Shop_ButtonID id, bool canToggle, int cost, Subelement[] siblings)
+	{
+		this.id = id;
+		this.name = name;
+		this.canToggle = canToggle;
+		this.cost = cost;
+		this.siblings = siblings;
 	}
 
 	public void SetPurchased(bool b)
